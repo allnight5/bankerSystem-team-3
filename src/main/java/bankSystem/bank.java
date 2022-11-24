@@ -39,13 +39,11 @@ public class bank {
                 break;
             }
             if (AccountNumber.matches(check)){
-                if(banklist.lengthGetter() != 0){
-                    boolean isTrue = banklist.accountGetter(AccountNumber);
-                    if(!isTrue){
-                        System.out.println("중복입니다.");
-                        System.out.println("다른 계좌번호를 입력해주세요");
-                        continue;
-                    }
+                boolean isTrue = banklist.accountGetter(AccountNumber);
+                if(!isTrue){
+                    System.out.println("중복입니다.");
+                    System.out.println("다른 계좌번호를 입력해주세요");
+                    continue;
                 }
                 banklist.Setter(name, password,AccountNumber);
                 istrueAccountNumber = true;
@@ -54,7 +52,54 @@ public class bank {
             }
         }
     }
+
+    //2번 계좌 수정 소유자명
+    //계좌 번호와 비밀번호를 입력할건지. 이름과 비밀번호를 입력할것인지
+    public void changeCustomer(){
+        //
+        Scanner sc = new Scanner(System.in);
+        System.out.println("수정할 계좌의 계좌번호를 입력해주세요 : ");
+        String accountNumber = sc.nextLine();
+        System.out.println("수정할 계좌의 비밀번호를 입력해주세요 : ");
+        String password = sc.nextLine();
+        //존재하는지 확인 존재할시 false로 돌려주는 boolean형 리턴 메소드
+        boolean isChangeCheck = banklist.aBooleanchangeGetter(accountNumber, password);
+        if(!isChangeCheck) {
+            System.out.println("---------------------------------");
+            System.out.println("계좌의 변경할 비밀번호를 입력해주세요 : ");
+            sc = new Scanner(System.in);
+            String changePassword = sc.nextLine();
+            banklist.changeSetter(accountNumber, changePassword);
+        }else {
+            System.out.println("존재하지 않는 계좌번호 이거나 비밀번호가 틀렸습니다.");
+        }
+    }
+
+
+    //3번 계좌 삭제 소유자명
+    public void deleteCustomer(){
+        //
+        Scanner sc = new Scanner(System.in);
+        System.out.println("삭제할 계좌의 계좌번호를 입력해주세요 : ");
+        String accountNumber = sc.nextLine();
+        System.out.println("삭제할 계좌의 비밀번호를 입력해주세요 : ");
+        String password = sc.nextLine();
+        boolean delCheck =banklist.deleteCustomer(accountNumber, password);
+        if (!delCheck){
+            System.out.println("삭제 되었습니다");
+        }else{
+            System.out.println("존재하지 않는 계좌번호 이거나 비밀번호가 틀렸습니다.");
+        }
+    }
+
+
     //4번 계좌 검색 소유자명
+
+    ////////////////////////////////////////////////////////
+    // 계좌 검색 계좌 번호로 인한 탐색도 추가해야한다 아직 미완성/////
+    // if문으로 시작시 탐색방법을 나눌건지 따로 할것인지 결정하기/////
+    ////////////////////////////////////////////////////////
+
     public void selectAccountView(){
         if (banklist.lengthGetter() == 0){
             System.out.println("가지고 계신 계좌가 없습니다.");
@@ -72,7 +117,10 @@ public class bank {
         //입력되어있는순으로 출력하고싶을때
         for (int i =0; i<banklist.lengthGetter(); i++){
             bankSystemItem temp = banklist.Getter(inName, i);
-            if(temp == null) continue;
+            if(temp == null) {
+                System.out.println("고객이 가진 계좌가 없습니다.");
+                continue;
+            }
             System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
         }
     }

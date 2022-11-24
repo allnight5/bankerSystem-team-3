@@ -20,15 +20,23 @@ class bankSystemItem{
         this.accountNumber = accountNumber;
         this.date= date;
     }
+    //순서대로 생성수, 고객이름,비밀번호,계좌번호,날짜이다.
     public int getBankIdx(){return idx;}
     public String getCustomerName(){return name;}
     public String getCustomerPassword(){return password;}
     public String getCustomerAccountNumber(){return accountNumber;}
     public String getCustomerConnectDate(){return date;}
-    public void setCustomerPassword(String chagePass){
-        password = chagePass;
-    }
 
+    //순서대로 이름, 비밀번호,계좌번호이다.
+    public void setCustomerName(String changeName){
+        password = changeName;
+    }
+    public void setCustomerPassword(String changePass){
+        password = changePass;
+    }
+    public void setCustomerAccountNumber(String changeAccountNumber){
+        accountNumber = changeAccountNumber;
+    }
 }
 public class bankList {
     static int count = 0;
@@ -39,7 +47,7 @@ public class bankList {
         bankArraylist = new ArrayList<>();
     }
 
-    //이메소드로 맞는 계좌번호 하나를 가져올수있다.
+    //계좌번호 중복 검사를 해주는 메소드
     public boolean accountGetter(String accountName){
         for (bankSystemItem item : bankArraylist) {
             //중복검사 문자열인 getCustomerAccountNumer와 들어온 어카운트가 같은지 확인한다.
@@ -50,6 +58,12 @@ public class bankList {
         }
         return true;
     }
+    //나중에 비교 메소드 만들어보기
+    //너무많이쓰니까 규칙찾아서 클래스나 메소드 하나로 만들어서 사용하는것이 좋을것같다.
+//    public boolean checkEquals(){
+//
+//        return
+//    }
     //입력된값을 리스트에 넣어주는 setter
     //1번 계좌 등록에 사용되는 메소드
     public void Setter(String name, String password, String accountNumber){
@@ -62,13 +76,38 @@ public class bankList {
         System.out.println("생성자수 :\t"+data.getBankIdx() +",\t고객명 :\t"+data.getCustomerName()+",\t비밀번호 :\t"+data.getCustomerPassword()+",\t계좌번호 :\t"+data.getCustomerAccountNumber()
                 +",\t날짜시간 :\t"+data.getCustomerConnectDate());
     }
-    //은행 2번 수정 메소드
-    public void changeSetter(String name){
-
+    //은행 2,3번 수정,삭제 Get메소드
+    //계좌 번호와 비밀번호를 받을것인지 고객명과 비밀번호를 받을것인지
+    //입력값이 은행에 존재하는지 확인해주는 메소드
+    public boolean aBooleanchangeGetter(String accountNumber, String password){
+        for(bankSystemItem item: bankArraylist){
+            if(item.getCustomerAccountNumber().equals(accountNumber) && item.getCustomerPassword().equals(password)){
+                return false;
+            }
+        }
+        return true;
     }
-
+    //은행 2-2번 수정 Set 메소드
+    //무엇을 수정할것인지 선택하게 할것인가
+    //비밀번호만 변경할것인가
+    //비밀번호를 변경해주는 메소드
+    public void changeSetter(String accountNumber, String changePassword){
+        for(bankSystemItem item: bankArraylist){
+            if(item.getCustomerAccountNumber().equals(accountNumber)){
+                item.setCustomerPassword(changePassword);
+            }
+        }
+    }
     //은행 3번 삭제 메소드
-
+    public boolean deleteCustomer(String accountNumber, String password){
+        for(bankSystemItem item: bankArraylist){
+            if(item.getCustomerAccountNumber().equals(accountNumber) && item.getCustomerPassword().equals(password)){
+                bankArraylist.remove(item);
+                return false;
+            }
+        }
+        return true;
+    }
 
     //은행 4번내용 이름 검색 내용 출력
     //이름 검색시 있다면 그 문자열을 반환해준다.
