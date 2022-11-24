@@ -22,9 +22,12 @@ class bankSystemItem{
     }
     public int getBankIdx(){return idx;}
     public String getCustomerName(){return name;}
-    public String getCustomerPassword(){return name;}
+    public String getCustomerPassword(){return password;}
     public String getCustomerAccountNumber(){return accountNumber;}
-    public String getCustomerConnectDate(){return date;}
+    public String getCustomerConnectDate(){return date;} 
+    public void setCustomerPassword(String chagePass){
+        password = chagePass;
+    }
 
 }
 public class bankList {
@@ -71,8 +74,6 @@ public class bankList {
         if(item.getCustomerName().equals(name)){
             System.out.println("계좌번호 : "+item.getCustomerAccountNumber()+"\t고객이름 : "+item.getCustomerName()+"\t비밀번호"+item.getCustomerPassword());
         }
-
-
     }
     //5번 내용 반환
     public bankSystemItem GetterAll(int idx){
