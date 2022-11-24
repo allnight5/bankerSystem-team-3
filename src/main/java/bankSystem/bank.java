@@ -1,6 +1,4 @@
 package bankSystem;
-
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class bank {
@@ -54,31 +52,35 @@ public class bank {
         System.out.println("찾고 싶은 계좌의 소유자명을 입력해주세요");
         Scanner sc = new Scanner(System.in);
         String inName = sc.nextLine();
-
-        System.out.println(banklist.lengthGetter());
-        for (int i =banklist.lengthGetter(); i>0; i--){
-            banklist.Getter(inName,i-1);
+//        //이제막 입력된것이 맨위로 보이게 하고싶을때
+//        for (int i =banklist.lengthGetter(); i>0; i--){
 //            bankSystemItem temp = banklist.Getter(inName,i-1);
-//            if (temp.getBankIdx() == -1) continue;
+//            if(temp == null) continue;
 //            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
+//        }
+        //입력되어있는순으로 출력하고싶을때
+        for (int i =0; i<banklist.lengthGetter(); i++){
+            bankSystemItem temp = banklist.Getter(inName, i);
+            if(temp == null) continue;
+            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
         }
     }
     //5번 전체 조회하기
     public void allAccountView(){
+        //비어있다면 그만둔다
+        if(banklist.lengthGetter() == 0) return;
         System.out.println("이용자수\t고객명\t비밀번호\t계좌번호");
         System.out.println("------------------------------------");
-        System.out.println(banklist.lengthGetter());
-        for (int i =banklist.lengthGetter(); i<0; i--){
-            bankSystemItem temp = banklist.GetterAll(i-1);
-
-            if (temp.getBankIdx() == -1) continue;
-            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
-        }
-//        for (int i =0; i<banklist.lengthGetter(); i++){
-//            bankSystemItem temp = banklist.GetterAll(i+1);
-//            if (temp.getBankIdx() == -1) continue;
+        //이제막 입력된것이 맨위로 보이게 하고싶을때
+//        for (int i =banklist.lengthGetter(); i>0; i--){
+//            bankSystemItem temp = banklist.GetterAll(i-1);
 //            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
 //        }
+        //입력되어있는순으로 출력하고싶을때
+        for (int i =0; i<banklist.lengthGetter(); i++){
+            bankSystemItem temp = banklist.GetterAll(i);
+            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
+        }
     }
 
 }

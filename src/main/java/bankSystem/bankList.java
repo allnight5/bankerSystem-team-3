@@ -24,7 +24,7 @@ class bankSystemItem{
     public String getCustomerName(){return name;}
     public String getCustomerPassword(){return password;}
     public String getCustomerAccountNumber(){return accountNumber;}
-    public String getCustomerConnectDate(){return date;} 
+    public String getCustomerConnectDate(){return date;}
     public void setCustomerPassword(String chagePass){
         password = chagePass;
     }
@@ -61,7 +61,9 @@ public class bankList {
                 +",\t날짜시간 :\t"+data.getCustomerConnectDate());
     }
     //은행 2번 수정 메소드
+    public void changeSetter(String name){
 
+    }
 
     //은행 3번 삭제 메소드
 
@@ -69,21 +71,20 @@ public class bankList {
     //은행 4번내용 이름 검색 내용 출력
     //이름 검색시 있다면 그 문자열을 반환해준다.
     // 우선 한개만 되는지 확인
-    public void Getter(String name, int idx){
+    public bankSystemItem Getter(String name, int idx){
         bankSystemItem item = bankArraylist.get(idx);
         if(item.getCustomerName().equals(name)){
-            System.out.println("계좌번호 : "+item.getCustomerAccountNumber()+"\t고객이름 : "+item.getCustomerName()+"\t비밀번호"+item.getCustomerPassword());
+            return item;
+        }else{
+            return null;
         }
     }
     //5번 내용 반환
     public bankSystemItem GetterAll(int idx){
-        bankSystemItem item = bankArraylist.get(idx);
-        item.getBankIdx();
+        bankSystemItem item = bankArraylist.get(idx); 
         return item;
     }
     public int lengthGetter(){
         return bankArraylist.size();
     }
-
-
 }
