@@ -1,4 +1,6 @@
 package bankSystem;
+import bankSystem.interFace.bankInInterface;
+
 import java.util.Scanner;
 
 public class bank {
@@ -6,12 +8,14 @@ public class bank {
 
     public bank(){banklist = new bankList();}
 
+    //계좌 생성 메소드
     public void bankcreat(){
         String  name, password, AccountNumber;
 //        LocalDateTime date = LocalDateTime.now();
         boolean istrueAccountNumber = false;
         Scanner sc = new Scanner(System.in);
 
+        bankInInterface bankInInterface = new bankInInterface();
         // 메모 작성전 입력해야하는 정보(고객이름, 비밀번호, 계좌번호) 입력받기
         System.out.println("------작성------");
 
@@ -22,20 +26,27 @@ public class bank {
         // 비밀번호번호 작성
         System.out.println("비밀번호 입력 : ");
         password = sc.nextLine();
-
         //계좌 번호
         while(!istrueAccountNumber) {
+            bankInInterface.inRun();
             // 계좌번호 작성
             sc = new Scanner(System.in);
-            System.out.println("계좌번호을 입력해주세요.");
-            System.out.println("번호는x-x-x ~ xxxx-xxxxx-xxxx의 형태의 숫자로 이루어집니다");
-            System.out.println("계좌 생성을 그만두고 싶으시다면 (0)을 입력해주세요");
+            //정규표현식 변수
             String check = "^(\\d{1,4})(-(\\d{1,5}))(-(\\d{1,4}))";
+            //계좌번호 작성
             AccountNumber = sc.nextLine();
             if (AccountNumber.equals("0")){
                 break;
             }
             if (AccountNumber.matches(check)){
+                if(banklist.lengthGetter() != 0){
+                    boolean isTrue = banklist.accountGetter(AccountNumber);
+                    if(!isTrue){
+                        System.out.println("중복입니다.");
+                        System.out.println("다른 계좌번호를 입력해주세요");
+                        continue;
+                    }
+                }
                 banklist.Setter(name, password,AccountNumber);
                 istrueAccountNumber = true;
             }else {

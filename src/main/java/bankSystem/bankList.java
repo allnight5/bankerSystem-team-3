@@ -40,13 +40,15 @@ public class bankList {
     }
 
     //이메소드로 맞는 계좌번호 하나를 가져올수있다.
-    public bankSystemItem  accountGetter(String name){
+    public boolean accountGetter(String accountName){
         for (bankSystemItem item : bankArraylist) {
-            if (item.getCustomerName().equals(name)) {
-                return item;
+            //중복검사 문자열인 getCustomerAccountNumer와 들어온 어카운트가 같은지 확인한다.
+            //같다면 false보내서 !(반대로 바꾸는거 flase -> true) 조건문을 충족시킨다
+            if (item.getCustomerAccountNumber().equals(accountName)) {
+                return false;
             }
         }
-        return null;
+        return true;
     }
     //입력된값을 리스트에 넣어주는 setter
     //1번 계좌 등록에 사용되는 메소드
@@ -81,7 +83,7 @@ public class bankList {
     }
     //5번 내용 반환
     public bankSystemItem GetterAll(int idx){
-        bankSystemItem item = bankArraylist.get(idx); 
+        bankSystemItem item = bankArraylist.get(idx);
         return item;
     }
     public int lengthGetter(){

@@ -1,8 +1,5 @@
 package bankSystem;
-import bankSystem.interFace.bankInterface;
-import bankSystem.interFace.customerInterface;
-import bankSystem.interFace.mainInterface;
-import bankSystem.interFace.rePasswordInterface;
+import bankSystem.interFace.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -16,7 +13,6 @@ public class main {
         customerInterface customerInterface = new customerInterface();
         rePasswordInterface rePasswordInterface = new rePasswordInterface();
         bankInterface bankInterface = new bankInterface();
-
         //고객인지 관리자인지 알기위한 관리자비밀번호
         String adminpassword = "1234";
         //고객 정보 전체를를 담아둘 은행 하나 생성;
