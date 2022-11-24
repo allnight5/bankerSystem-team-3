@@ -6,12 +6,11 @@ import java.util.Scanner;
 public class bank {
     bankList banklist;
 
-    public bank(){
-        banklist = new bankList();
-    }
+    public bank(){banklist = new bankList();}
+
     public void bankcreat(){
         String  name, password, AccountNumber;
-        LocalDateTime date = LocalDateTime.now();
+//        LocalDateTime date = LocalDateTime.now();
         boolean istrueAccountNumber = false;
         Scanner sc = new Scanner(System.in);
 
@@ -39,33 +38,47 @@ public class bank {
                 break;
             }
             if (AccountNumber.matches(check)){
-                banklist.Setter(name, password,AccountNumber, date);
+                banklist.Setter(name, password,AccountNumber);
                 istrueAccountNumber = true;
             }else {
                 System.out.println("계좌번호 규칙을 준수해주시기 바랍니다..");
-                System.out.println("번호는x-x-x ~ xxxx-xxxx-xxxx의 형태의 숫자로 이루어집니다");
             }
-            System.out.println("");
         }
     }
+    //4번 계좌 검색 소유자명
     public void selectAccountView(){
+        if (banklist.lengthGetter() == 0){
+            System.out.println("가지고 계신 계좌가 없습니다.");
+            return;
+        }
+        System.out.println("찾고 싶은 계좌의 소유자명을 입력해주세요");
+        Scanner sc = new Scanner(System.in);
+        String inName = sc.nextLine();
 
+        System.out.println(banklist.lengthGetter());
+        for (int i =banklist.lengthGetter(); i>0; i--){
+            banklist.Getter(inName,i-1);
+//            bankSystemItem temp = banklist.Getter(inName,i-1);
+//            if (temp.getBankIdx() == -1) continue;
+//            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
+        }
     }
+    //5번 전체 조회하기
     public void allAccountView(){
         System.out.println("이용자수\t고객명\t비밀번호\t계좌번호");
         System.out.println("------------------------------------");
         System.out.println(banklist.lengthGetter());
-//        for (int i =banklist.lengthGetter(); i>0; i--){
-//            bankSystemItem temp = banklist.GetterAll(i-1);
-//
-//            if (temp.getBankIdx() == -1) continue;
-//            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
-//        }
-        for (int i =0; i<banklist.lengthGetter(); i++){
-            bankSystemItem temp = banklist.GetterAll(i+1);
+        for (int i =banklist.lengthGetter(); i<0; i--){
+            bankSystemItem temp = banklist.GetterAll(i-1);
+
             if (temp.getBankIdx() == -1) continue;
             System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
         }
+//        for (int i =0; i<banklist.lengthGetter(); i++){
+//            bankSystemItem temp = banklist.GetterAll(i+1);
+//            if (temp.getBankIdx() == -1) continue;
+//            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
+//        }
     }
 
 }

@@ -31,33 +31,50 @@ public class bankList {
     static int count = 0;
     ArrayList<bankSystemItem> bankArraylist;
 
+    //리스트 한개를 생성한다;
     public bankList(){
         bankArraylist = new ArrayList<>();
     }
 
-    //입력된값을 리스트에 넣어주는 setter
-    public void Setter(String name, String password, String accountNumber, LocalDateTime date){
-        count++;
-        SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date dateUpdate = new Date();
-        //입력넣어주기formatterUpdate.format(dateUpdate)
-        String tDateTime = "";
-        tDateTime = date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-        bankSystemItem data = new bankSystemItem(count,name,password,accountNumber, tDateTime);
-        bankArraylist.add(data);
-        System.out.println("생성자수 :\t"+data.getBankIdx() +",\t고객명 :\t"+data.getCustomerName()+",\t비밀번호 :\t"+data.getCustomerPassword()+",\t계좌번호 :\t"+data.getCustomerAccountNumber()
-                +",\t날짜시간 :\t"+data.getCustomerConnectDate());
-    }
-    //이름 검색시 있다면 그 문자열을 반환해준다.
-    // 우선 한개만 되는지 확인
-    public bankSystemItem Getter(String name){
+    //이메소드로 맞는 계좌번호 하나를 가져올수있다.
+    public bankSystemItem  accountGetter(String name){
         for (bankSystemItem item : bankArraylist) {
-            if (item.equals(name)) {
+            if (item.getCustomerName().equals(name)) {
                 return item;
             }
         }
         return null;
     }
+    //입력된값을 리스트에 넣어주는 setter
+    //1번 계좌 등록에 사용되는 메소드
+    public void Setter(String name, String password, String accountNumber){
+        count++;
+        Date dateUpdate = new Date();
+        SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String dateTime = formatterUpdate.format(dateUpdate);
+        bankSystemItem data = new bankSystemItem(count,name,password,accountNumber, dateTime);
+        bankArraylist.add(data);
+        System.out.println("생성자수 :\t"+data.getBankIdx() +",\t고객명 :\t"+data.getCustomerName()+",\t비밀번호 :\t"+data.getCustomerPassword()+",\t계좌번호 :\t"+data.getCustomerAccountNumber()
+                +",\t날짜시간 :\t"+data.getCustomerConnectDate());
+    }
+    //은행 2번 수정 메소드
+
+
+    //은행 3번 삭제 메소드
+
+
+    //은행 4번내용 이름 검색 내용 출력
+    //이름 검색시 있다면 그 문자열을 반환해준다.
+    // 우선 한개만 되는지 확인
+    public void Getter(String name, int idx){
+        bankSystemItem item = bankArraylist.get(idx);
+        if(item.getCustomerName().equals(name)){
+            System.out.println("계좌번호 : "+item.getCustomerAccountNumber()+"\t고객이름 : "+item.getCustomerName()+"\t비밀번호"+item.getCustomerPassword());
+        }
+
+
+    }
+    //5번 내용 반환
     public bankSystemItem GetterAll(int idx){
         bankSystemItem item = bankArraylist.get(idx);
         item.getBankIdx();
