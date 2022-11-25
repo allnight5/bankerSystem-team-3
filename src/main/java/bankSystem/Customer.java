@@ -26,7 +26,7 @@ public class Customer extends Bank {
                             System.out.println("고객이 가진 계좌가 없습니다.");
                         } else {
                             while (true) {
-                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).");
+                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).");
                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
 
                                 switch (depositOrWithdraw) {
@@ -45,6 +45,9 @@ public class Customer extends Bank {
                                         System.out.println("-------거래내역-------");
                                         transaction.transactionListGetterByAccount(checkAccountNumber);
                                         break;
+                                    case 4:
+                                        System.out.println("계좌 잔고는 " + banklist.readBalance(accountNumber) + "원 입니다.");
+
                                 }
                                 break;
                             }
@@ -59,7 +62,7 @@ public class Customer extends Bank {
                             System.out.println("고객이 가진 계좌가 없습니다.");
                         } else {
                             while (true) {
-                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).");
+                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).");
                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
 
                                 switch (depositOrWithdraw) {
@@ -78,6 +81,9 @@ public class Customer extends Bank {
                                         System.out.println("-------거래내역-------");
                                         transaction.transactionListGetterByName(checkAccountName);
                                         break;
+                                    case 4:
+                                        System.out.println("계좌 잔고는 " + banklist.readBalance(accountName) + "원 입니다.");
+
                                 }
                                 break;
 

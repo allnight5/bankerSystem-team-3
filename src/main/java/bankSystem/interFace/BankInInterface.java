@@ -7,4 +7,3 @@ public class BankInInterface {
         System.out.println("계좌 생성을 그만두고 싶으시다면 (0)을 입력해주세요");
     }
 }
-// 안녕하세요

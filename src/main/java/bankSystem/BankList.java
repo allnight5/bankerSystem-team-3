@@ -114,6 +114,9 @@ public class BankList {
     public void withdrawSetter(BankSystemItem account, int withdraw){
             account.setDeposit(withdraw);
     }
+    public int readBalance(BankSystemItem account){
+       return account.getCustomerBalance();
+    }
     //은행 3번 삭제 메소드
     public boolean deleteCustomer(String accountNumber, String password){
         for(BankSystemItem item: bankArraylist){
