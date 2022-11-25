@@ -44,7 +44,7 @@ public class Customer extends Bank {
                                         String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         int tempDepositBalance =  banklist.depositSetter(accountNumber, deposit);
-                                        transaction.TransactionSetter(null, checkAccountNumber, tempType, deposit, tempDepositBalance);
+                                        transaction.makeTransactionIntoList(null, checkAccountNumber, tempType, deposit, tempDepositBalance);
                                         break;
 
                                     case 2:
@@ -52,11 +52,11 @@ public class Customer extends Bank {
                                         String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         int tempWithdrawBalance = banklist.withdrawSetter(accountNumber, withdraw);
-                                        transaction.TransactionSetter(null, checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
+                                        transaction.makeTransactionIntoList(null, checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");
-                                        transaction.transactionListGetterByAccount(checkAccountNumber);
+                                        transaction.getTransactionListByAccountNumber(checkAccountNumber);
                                         break;
                                     case 4:
                                         System.out.println("계좌 잔고는 " + banklist.readBalance(accountNumber) + "원 입니다.");
@@ -87,13 +87,17 @@ public class Customer extends Bank {
                                 switch (depositOrWithdraw) {
                                     case 1:
                                         System.out.println("입금하시려는 액수를 입력해주세요.");
+                                        String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
-                                        banklist.depositSetter(accountName, deposit);
+                                        int tempDepositBalance = banklist.depositSetter(accountName, deposit);
+                                        transaction.makeTransactionIntoList(checkAccountName, null, tempType, deposit, tempDepositBalance);
                                         break;
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
+                                        String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
-                                        banklist.withdrawSetter(accountName, withdraw);
+                                        int tempWithdrawBalance = banklist.withdrawSetter(accountName, withdraw);
+                                        transaction.makeTransactionIntoList(checkAccountName, null, tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");

@@ -92,7 +92,7 @@ public class Transaction {
 
     static int transactionCount = 0;
 
-    public void TransactionSetter(String userName, String accountNum, String type, int amountOfTransfer, int finalBalance) {
+    public void makeTransactionIntoList(String userName, String accountNum, String type, int amountOfTransfer, int finalBalance) {
         transactionCount++;
         Date dateUpdate = new Date();
         SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -109,10 +109,18 @@ public class Transaction {
         }
     }
 
-    public void transactionListGetterByAccount(String accountNum) {
+    public void getTransactionListByAccountNumber(String accountNum) {
         for (int i = 0; i < transactionItems.size(); i++) {
             if (transactionItems.get(i).getAccountNum().equals(accountNum)) {
                 System.out.println("거래 일자/시간: " + transactionItems.get(i).getDate() + ".   계좌번호: " + transactionItems.get(i).getAccountNum() + ".   거래 여부: " + transactionItems.get(i).getType() + ".   거래 금액: " + transactionItems.get(i).getAmountOfTransfer() + ".   잔고: " + transactionItems.get(i).getFinalBalance());
+            }
+        }
+    }
+
+    public String getTransactionListByUserName(String userName) {
+        for (int i = 0; i < transactionItems.size(); i++) {
+            if (transactionItems.get(i).getUserName().equals(userName)) {
+                return userName;
             }
         }
     }
