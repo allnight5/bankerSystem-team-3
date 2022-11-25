@@ -5,8 +5,13 @@ import java.util.Scanner;
 public class Bank {
     public static BankList banklist = new BankList();
 
-    CustomerList customerlist;
+    CustomerList customerList;
     Customer customer;
+
+    public Bank() {
+        banklist = new BankList();
+        customerList = new CustomerList();
+    }
 
     //계좌 생성 메소드
     public void bankCreate(){
