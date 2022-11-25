@@ -3,6 +3,7 @@ package bankSystem;
 import java.util.Scanner;
 
 public class Customer extends Bank {
+    Transaction transaction = new Transaction();
 
     public void selectAccountView() {
         Scanner scanner = new Scanner(System.in);
@@ -25,7 +26,7 @@ public class Customer extends Bank {
                             System.out.println("고객이 가진 계좌가 없습니다.");
                         } else {
                             while (true) {
-                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).");
+                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).");
                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
 
                                 switch (depositOrWithdraw) {
@@ -39,6 +40,10 @@ public class Customer extends Bank {
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         banklist.withdrawSetter(accountNumber, withdraw);
+                                        break;
+                                    case 3:
+                                        System.out.println("-------거래내역-------");
+                                        transaction.transactionListGetterByAccount(checkAccountNumber);
                                         break;
                                 }
                                 break;
@@ -54,7 +59,7 @@ public class Customer extends Bank {
                             System.out.println("고객이 가진 계좌가 없습니다.");
                         } else {
                             while (true) {
-                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).");
+                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).");
                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
 
                                 switch (depositOrWithdraw) {
@@ -68,6 +73,10 @@ public class Customer extends Bank {
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         banklist.withdrawSetter(accountName, withdraw);
+                                        break;
+                                    case 3:
+                                        System.out.println("-------거래내역-------");
+                                        transaction.transactionListGetterByName(checkAccountName);
                                         break;
                                 }
                                 break;

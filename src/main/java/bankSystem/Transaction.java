@@ -8,10 +8,11 @@ import java.util.Date;
 import java.util.HashMap;
 
 class TransactionItems {
-    private double finalBalance, amountOfTransfer;
+    private int finalBalance, amountOfTransfer, idx;
     private String userName, accountNum, bankName, password, date;
 
-    public TransactionItems(String userName, String password, String date, String accountNum, int amountOfTransfer, String bankName, int finalBalance) {
+    public TransactionItems(int idx, String userName, String password, String date, String accountNum, int amountOfTransfer, String bankName, int finalBalance) {
+        this.idx = idx;
         this.finalBalance = finalBalance;
         this.userName = userName;
         this.accountNum = accountNum;
@@ -24,23 +25,31 @@ class TransactionItems {
 
 public class Transaction {
     ArrayList<TransactionItems> transactionItems;
-    HashMap<String, ArrayList<TransactionItems>> listOfTransactions;
+    HashMap<String, ArrayList<TransactionItems>> listOfTransactionsByName;
+    HashMap<String, ArrayList<TransactionItems>> listOfTransactionsByAccount;
 
     TransactionInterface transactionInterface = new TransactionInterface();
 
-    public Transaction() { listOfTransactions = new HashMap<>(); }
+    public Transaction() { listOfTransactionsByName = new HashMap<>(); }
+    static int transactionCount = 0;
 
     public void TransactionSetter(String userName, String password, String accountNum, String type, int amountOfTransfer, String bankName, int finalBalance) {
+        transactionCount++;
         Date dateUpdate = new Date();
         SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateTime = formatterUpdate.format(dateUpdate);
-        TransactionItems transactionData = new TransactionItems(userName, password, accountNum, type, amountOfTransfer, bankName, finalBalance);
+        TransactionItems transactionData = new TransactionItems(transactionCount, userName, password, accountNum, type, amountOfTransfer, bankName, finalBalance);
         transactionItems.add(transactionData);
-        listOfTransactions.put(userName, transactionItems);
+        listOfTransactionsByName.put(userName, transactionItems);
+        listOfTransactionsByAccount.put(accountNum, transactionItems);
     }
 
-    public void TransactionListGetter(String userName) {
-        System.out.println(listOfTransactions.get(userName));
+    public void transactionListGetterByName(String userName) {
+        listOfTransactionsByName.get(userName);
+    }
+
+    public void transactionListGetterByAccount(String accountNum) {
+        listOfTransactionsByName.get(accountNum);
     }
 }
 
