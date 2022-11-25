@@ -22,7 +22,7 @@ public class Main {
         //고객 창으로 이동을 위해 선언
 
 
-        int adminCustomer = 0;
+        int adminCustomer;
         mainIn.banner();
         while (true) {
             mainIn.run();

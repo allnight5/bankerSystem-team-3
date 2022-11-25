@@ -43,7 +43,6 @@ public class Customer extends Bank {
                                         System.out.println("입금하시려는 액수를 입력해주세요.");
                                         String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
-                                        banklist.depositSetter(accountNumber, deposit);
                                         int tempDepositBalance =  banklist.depositSetter(accountNumber, deposit);
                                         transaction.TransactionSetter(null, checkAccountNumber, tempType, deposit, tempDepositBalance);
                                         break;
@@ -52,7 +51,6 @@ public class Customer extends Bank {
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
-                                        banklist.withdrawSetter(accountNumber, withdraw);
                                         int tempWithdrawBalance = banklist.withdrawSetter(accountNumber, withdraw);
                                         transaction.TransactionSetter(null, checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
                                         break;
