@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="계좌 조회 테스트입니다.">
+    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="고객 메뉴에서 계좌 번호 조회 기능 오류 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Bank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/BankList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/BankList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/CustomerAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +99,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669362455298</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="고객 메뉴에서 계좌 번호 조회 기능 수정">
+      <created>1669364491839</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669364491839</updated>
+    </task>
+    <task id="LOCAL-00005" summary="고객 메뉴에서 계좌 번호 조회 기능 오류 수정">
+      <created>1669364686575</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669364686575</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +133,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="커밋 테스트 입니다." />
     <MESSAGE value="계좌 조회 테스트입니다." />
-    <option name="LAST_COMMIT_MESSAGE" value="계좌 조회 테스트입니다." />
+    <MESSAGE value="고객 메뉴에서 계좌 번호 조회 기능 수정" />
+    <MESSAGE value="고객 메뉴에서 계좌 번호 조회 기능 오류 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="고객 메뉴에서 계좌 번호 조회 기능 오류 수정" />
   </component>
 </project>

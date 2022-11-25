@@ -11,7 +11,7 @@ class BankSystemItem {
     private int idx, balance;
     private String name, password, accountNumber, date;
     public BankSystemItem(){}
-    public BankSystemItem(int idx, String name, String password, String accountNumber, int balance, String date){
+    public BankSystemItem(int idx, String name, String password, String accountNumber, String date){
         this.idx = idx;
         this.name = name;
         this.password = password;
@@ -34,18 +34,22 @@ class BankSystemItem {
     public void setCustomerPassword(String changePass){
         password = changePass;
     }
-    public void setCustomerAccountNumber(String changeAccountNumber){
-        accountNumber = changeAccountNumber;
-    }
+    public void setCustomerAccountNumber(String changeAccountNumber){accountNumber = changeAccountNumber;}
+
+    public void setDeposit(int deposit) { balance += deposit;}
+    public void setWithdraw(int withdraw) { balance -= withdraw;}
 }
 public class BankList {
-    static int count = 0;
+
+
+    static int count= 0;
     static ArrayList<BankSystemItem> bankArraylist;
 
     //리스트 한개를 생성한다;
     public BankList(){
         bankArraylist = new ArrayList<>();
     }
+
 
     //계좌번호 중복 검사를 해주는 메소드
     public boolean accountGetter(String accountName){
@@ -58,6 +62,7 @@ public class BankList {
         }
         return true;
     }
+
     //나중에 비교 메소드 만들어보기
     //너무많이쓰니까 규칙찾아서 클래스나 메소드 하나로 만들어서 사용하는것이 좋을것같다.
 //    public boolean checkEquals(){
@@ -68,11 +73,11 @@ public class BankList {
     //1번 계좌 등록에 사용되는 메소드
     public void Setter(String name, String password, String accountNumber){
         count++;
-        int balance = 0;
+
         Date dateUpdate = new Date();
         SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateTime = formatterUpdate.format(dateUpdate);
-        BankSystemItem data = new BankSystemItem(count,name,password,accountNumber, balance, dateTime);
+        BankSystemItem data = new BankSystemItem(count,name,password,accountNumber,dateTime);
         bankArraylist.add(data);
         System.out.println("생성자수 :\t"+data.getBankIdx() +",\t고객명 :\t"+data.getCustomerName()+",\t비밀번호 :\t"+data.getCustomerPassword()+",\t계좌번호 :\t"+data.getCustomerAccountNumber()
                 +",\t잔고 :\t"+data.getCustomerBalance()+",\t날짜시간 :\t"+data.getCustomerConnectDate());
@@ -98,6 +103,18 @@ public class BankList {
             if(item.getCustomerAccountNumber().equals(accountNumber)){
                 item.setCustomerPassword(changePassword);
             }
+        }
+    }
+    // 잔고에 입금해주는 메소드
+    public void depositSetter(int deposit){
+        for(BankSystemItem item: bankArraylist){
+                item.setDeposit(deposit);
+        }
+    }
+
+    public void withdrawSetter(int withdraw){
+        for(BankSystemItem item: bankArraylist){
+            item.setWithdraw(withdraw);
         }
     }
     //은행 3번 삭제 메소드
@@ -140,4 +157,5 @@ public class BankList {
     public int lengthGetter(){
         return bankArraylist.size();
     }
+
 }

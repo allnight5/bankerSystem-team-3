@@ -5,19 +5,19 @@ import java.util.Scanner;
 public class Customer extends Bank {
 
     public void selectAccountView() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         if (banklist.lengthGetter() == 0) {
             System.out.println("가지고 계신 계좌가 없습니다.");
             return;
         }
         while (true) {
-            System.out.println("계좌번호로 계좌찾기을 원하시면 1번.\n" + "소유주명으로 계좌찾기을 원하시면 2번");
-            int numberOrName = Integer.parseInt(sc.nextLine());
+            System.out.println("계좌번호로 계좌찾기을 원하시면 (1).\n" + "소유주명으로 계좌찾기을 원하시면 (2).");
+            int numberOrName = Integer.parseInt(scanner.nextLine());
 
             switch (numberOrName) {
                 case 1:
                     System.out.println("찾고 싶은 계좌명을 입력해주세요");
-                    String accountNumber = sc.nextLine();
+                    String accountNumber = scanner.nextLine();
 
                     for (int i = 0; i < banklist.lengthGetter(); i++) {
                         BankSystemItem temp = banklist.GetterAccountNumber(accountNumber, i);
@@ -30,14 +30,7 @@ public class Customer extends Bank {
                     break;
                 case 2:
                     System.out.println("찾고 싶은 계좌의 소유자명을 입력해주세요");
-                    String inName = sc.nextLine();
-//        //이제막 입력된것이 맨위로 보이게 하고싶을때
-//        for (int i =banklist.lengthGetter(); i>0; i--){
-//            bankSystemItem temp = banklist.Getter(inName,i-1);
-//            if(temp == null) continue;
-//            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
-//        }
-                    //입력되어있는순으로 출력하고싶을때
+                    String inName = scanner.nextLine();
                     for (int i = 0; i < banklist.lengthGetter(); i++) {
                         BankSystemItem temp = banklist.Getter(inName, i);
                         if (temp == null) {
@@ -49,6 +42,27 @@ public class Customer extends Bank {
 
             }
             break;
+        }
+        while (true) {
+            System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).");
+            int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
+
+            switch (depositOrWithdraw) {
+                case 1:
+                    System.out.println("입금하시려는 액수를 입력해주세요.");
+                    int deposit = Integer.parseInt(scanner.nextLine());
+                    banklist.depositSetter(deposit);
+                    break;
+
+                case 2:
+                    System.out.println("출금하시려는 액수를 입력해주세요.");
+                    int withdraw = Integer.parseInt(scanner.nextLine());
+                    banklist.withdrawSetter(withdraw);
+                    break;
+
+
+            } break;
+
         }
     }
 }
