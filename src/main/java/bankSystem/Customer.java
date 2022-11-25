@@ -23,46 +23,28 @@ public class Customer extends Bank {
                         BankSystemItem temp = banklist.GetterAccountNumber(accountNumber, i);
                         if (temp == null) {
                             System.out.println("고객이 가진 계좌가 없습니다.");
-                            continue;
-                        }
-                        System.out.println("고객명 :\t" + temp.getCustomerName() + ",\t계좌번호 :\t" + temp.getCustomerAccountNumber() + ",\t잔고 :\t" + temp.getCustomerBalance());
-                    }
-                    break;
-                case 2:
-                    System.out.println("찾고 싶은 계좌의 소유자명을 입력해주세요");
-                    String inName = scanner.nextLine();
-                    for (int i = 0; i < banklist.lengthGetter(); i++) {
-                        BankSystemItem temp = banklist.Getter(inName, i);
-                        if (temp == null) {
-                            System.out.println("고객이 가진 계좌가 없습니다.");
-                            continue;
-                        }
-                        System.out.println("고객명 :\t" + temp.getCustomerName() + ",\t계좌번호 :\t" + temp.getCustomerAccountNumber() + ",\t잔고 :\t" + temp.getCustomerBalance());
-                    }
+                        } else {
+                            while (true) {
+                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).");
+                                int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
 
+                                switch (depositOrWithdraw) {
+                                    case 1:
+                                        System.out.println("입금하시려는 액수를 입력해주세요.");
+                                        int deposit = Integer.parseInt(scanner.nextLine());
+                                        banklist.depositSetter(accountNumber, deposit);
+                                        break;
+
+                                    case 2:
+                                        System.out.println("출금하시려는 액수를 입력해주세요.");
+                                        int withdraw = Integer.parseInt(scanner.nextLine());
+                                        banklist.withdrawSetter(withdraw);
+                                        break;
+                                } break;
+                            }
+                        }
+                    }
             }
-            break;
-        }
-        while (true) {
-            System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).");
-            int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
-
-            switch (depositOrWithdraw) {
-                case 1:
-                    System.out.println("입금하시려는 액수를 입력해주세요.");
-                    int deposit = Integer.parseInt(scanner.nextLine());
-                    banklist.depositSetter(deposit);
-                    break;
-
-                case 2:
-                    System.out.println("출금하시려는 액수를 입력해주세요.");
-                    int withdraw = Integer.parseInt(scanner.nextLine());
-                    banklist.withdrawSetter(withdraw);
-                    break;
-
-
-            } break;
-
         }
     }
 }

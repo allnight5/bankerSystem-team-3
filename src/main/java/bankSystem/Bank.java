@@ -9,7 +9,6 @@ public class Bank {
     Customer customer;
 
     public Bank() {
-        banklist = new BankList();
         customerList = new CustomerList();
     }
 

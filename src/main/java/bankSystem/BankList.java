@@ -106,12 +106,12 @@ public class BankList {
         }
     }
     // 잔고에 입금해주는 메소드
-    public void depositSetter(int deposit){
+    public void depositSetter(String accountNumber, int deposit){
         for(BankSystemItem item: bankArraylist){
+            if( accountNumber == item.getCustomerAccountNumber())
                 item.setDeposit(deposit);
         }
     }
-
     public void withdrawSetter(int withdraw){
         for(BankSystemItem item: bankArraylist){
             item.setWithdraw(withdraw);
