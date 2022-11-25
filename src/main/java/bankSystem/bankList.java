@@ -10,21 +10,23 @@ import java.util.Date;
 //이름, 비밀번호, 계좌번호 로 구성된다
 //이름을 고유로 할지 다른게 할지는 회의를 통해진행한다.
 class bankSystemItem{
-    private int idx;
+    private int idx, balance;
     private String name, password, accountNumber, date;
     public bankSystemItem(){}
-    public bankSystemItem(int idx, String name, String password, String accountNumber,String date){
+    public bankSystemItem(int idx, String name, String password, String accountNumber, int balance, String date){
         this.idx = idx;
         this.name = name;
         this.password = password;
         this.accountNumber = accountNumber;
         this.date= date;
+        this.balance = balance;
     }
     //순서대로 생성수, 고객이름,비밀번호,계좌번호,날짜이다.
     public int getBankIdx(){return idx;}
     public String getCustomerName(){return name;}
     public String getCustomerPassword(){return password;}
     public String getCustomerAccountNumber(){return accountNumber;}
+    public int getCustomerBalance(){return balance;}
     public String getCustomerConnectDate(){return date;}
 
     //순서대로 이름, 비밀번호,계좌번호이다.
@@ -68,13 +70,15 @@ public class bankList {
     //1번 계좌 등록에 사용되는 메소드
     public void Setter(String name, String password, String accountNumber){
         count++;
+        int balance = 0;
         Date dateUpdate = new Date();
         SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateTime = formatterUpdate.format(dateUpdate);
-        bankSystemItem data = new bankSystemItem(count,name,password,accountNumber, dateTime);
+        bankSystemItem data = new bankSystemItem(count,name,password,accountNumber, balance, dateTime);
         bankArraylist.add(data);
         System.out.println("생성자수 :\t"+data.getBankIdx() +",\t고객명 :\t"+data.getCustomerName()+",\t비밀번호 :\t"+data.getCustomerPassword()+",\t계좌번호 :\t"+data.getCustomerAccountNumber()
-                +",\t날짜시간 :\t"+data.getCustomerConnectDate());
+                +",\t잔고 :\t"+data.getCustomerBalance()+",\t날짜시간 :\t"+data.getCustomerConnectDate());
+
     }
     //은행 2,3번 수정,삭제 Get메소드
     //계좌 번호와 비밀번호를 받을것인지 고객명과 비밀번호를 받을것인지

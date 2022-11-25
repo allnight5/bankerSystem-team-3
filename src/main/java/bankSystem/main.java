@@ -95,16 +95,18 @@ public class main {
                 case 2:
                     sc = new Scanner(System.in);
                     //계좌번호를 입력받을 변수
-                    String temAccountNumber = sc.nextLine();
+//                    System.out.println("계좌번호를 입력해주세요");
+//                    String temAccountNumber = sc.nextLine();
                     //비밀번호 입력
-                    String tempassword = sc.nextLine();
+//                    System.out.println("비밀번호를 입력해주세요");
+//                    String tempassword = sc.nextLine();
 
                     //아래는 참고용(관리자꺼) 고객은 은행에 계좌번호와 비밀번호 입력시
                     //새로운 계좌를 생성하게 할것인지, 은행에서 계좌생성시 같이 리스트를 생성할것인지는
                     //회의 이후 결정
 //                    if (adminpassword.equals(tempassword)){
-//                        customerInterface.customerRun();
-//                        //고객 메인으로 이동하거나 여기에서 while문 을 돌릴곳
+                        customerInterface.customerRun();
+                        //고객 메인으로 이동하거나 여기에서 while문 을 돌릴곳
 //                    }else{
 //                        rePasswordInterface.rePass();
 //                    }

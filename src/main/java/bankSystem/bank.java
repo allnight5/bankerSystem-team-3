@@ -1,10 +1,9 @@
 package bankSystem;
 import bankSystem.interFace.bankInInterface;
-
 import java.util.Scanner;
 
 public class bank {
-    bankList banklist;
+    public static bankList banklist;
 
     public bank(){banklist = new bankList();}
 
@@ -16,7 +15,7 @@ public class bank {
         Scanner sc = new Scanner(System.in);
 
         bankInInterface bankInInterface = new bankInInterface();
-        // 메모 작성전 입력해야하는 정보(고객이름, 비밀번호, 계좌번호) 입력받기
+        // 계좌 작성전 입력해야하는 정보(고객이름, 비밀번호, 계좌번호) 입력받기
         System.out.println("------작성------");
 
         // 고객이름 작성
@@ -105,6 +104,7 @@ public class bank {
             System.out.println("가지고 계신 계좌가 없습니다.");
             return;
         }
+
         System.out.println("찾고 싶은 계좌의 소유자명을 입력해주세요");
         Scanner sc = new Scanner(System.in);
         String inName = sc.nextLine();
@@ -121,14 +121,14 @@ public class bank {
                 System.out.println("고객이 가진 계좌가 없습니다.");
                 continue;
             }
-            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
+            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber()+ ",\t잔고 :\t"+temp.getCustomerBalance());
         }
     }
     //5번 전체 조회하기
     public void allAccountView(){
         //비어있다면 그만둔다
         if(banklist.lengthGetter() == 0) return;
-        System.out.println("이용자수\t고객명\t비밀번호\t계좌번호");
+        System.out.println("이용자수\t고객명\t비밀번호\t계좌번호\t잔고");
         System.out.println("------------------------------------");
         //이제막 입력된것이 맨위로 보이게 하고싶을때
 //        for (int i =banklist.lengthGetter(); i>0; i--){
@@ -138,7 +138,7 @@ public class bank {
         //입력되어있는순으로 출력하고싶을때
         for (int i =0; i<banklist.lengthGetter(); i++){
             bankSystemItem temp = banklist.GetterAll(i);
-            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber());
+            System.out.println("고객수 : "+temp.getBankIdx() +",\t고객명 :\t"+temp.getCustomerName()+",\t비밀번호 :\t"+temp.getCustomerPassword()+",\t계좌번호 :\t"+temp.getCustomerAccountNumber()+ ",\t잔고 :\t"+temp.getCustomerBalance());
         }
     }
 
