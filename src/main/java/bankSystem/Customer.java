@@ -48,7 +48,5 @@ public class Customer extends Bank {
 
             } break;
         }
-
-
     }
 }
