@@ -38,7 +38,8 @@ public class Customer extends Bank {
                                         String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         banklist.depositSetter(accountNumber, deposit);
-                                        transaction.TransactionSetterByAccount(checkAccountNumber, tempType, deposit, );
+                                        int tempDepositBalance = banklist.depositSetter(accountNumber, deposit);
+                                        transaction.TransactionSetterByAccount(checkAccountNumber, tempType, deposit, tempDepositBalance);
                                         break;
 
                                     case 2:
@@ -46,7 +47,8 @@ public class Customer extends Bank {
                                         String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         banklist.withdrawSetter(accountNumber, withdraw);
-                                        transaction.TransactionSetterByName(checkAccountNumber, tempType2, withdraw, );
+                                        int tempWithdrawBalance = banklist.withdrawSetter(accountNumber, withdraw);
+                                        transaction.TransactionSetterByName(checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");
