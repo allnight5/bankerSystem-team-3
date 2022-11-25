@@ -101,7 +101,7 @@ public class Customer extends Bank {
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");
-                                        transaction.transactionListGetterByName(checkAccountName);
+                                        transaction.getTransactionListByUserName(checkAccountName);
                                         break;
                                     case 4:
                                         System.out.println("계좌 잔고는 " + banklist.readBalance(accountName) + "원 입니다.");
