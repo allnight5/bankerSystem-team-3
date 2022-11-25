@@ -78,7 +78,6 @@ public class Customer extends Bank {
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         banklist.depositSetter(accountName, deposit);
                                         break;
-
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         int withdraw = Integer.parseInt(scanner.nextLine());

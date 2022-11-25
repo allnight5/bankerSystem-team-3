@@ -106,14 +106,18 @@ public class BankList {
         }
     }
     // 잔고에 입금해주는 메소드
-    public void depositSetter(BankSystemItem account, int deposit){
+    public int depositSetter(BankSystemItem account, int deposit){
             account.setDeposit(deposit);
+            return account.getCustomerBalance();
         }
 
     // 잔고에서 출금하는 메소드
-    public void withdrawSetter(BankSystemItem account, int withdraw){
+    public int withdrawSetter(BankSystemItem account, int withdraw){
             account.setDeposit(withdraw);
+            return account.getCustomerBalance();
     }
+
+    // 잔고 확인해주는 메소드
     public int readBalance(BankSystemItem account){
        return account.getCustomerBalance();
     }
