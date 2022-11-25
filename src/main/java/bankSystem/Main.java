@@ -95,16 +95,16 @@ public class Main {
                     break;
                 case 2:
                     sc = new Scanner(System.in);
-//계좌번호를 입력받을 변수
+                    //계좌번호를 입력받을 변수
                     System.out.println("계좌번호를 입력해주시기 바랍니다 :");
                     String temAccountNumber = sc.nextLine();
-//비밀번호 입력
+                    //비밀번호 입력
                     System.out.println("비밀번호를 입력해주시기 바랍니다 :");
                     String customerPassword = sc.nextLine();
 
-//아래는 참고용(관리자꺼) 고객은 은행에 계좌번호와 비밀번호 입력시
-//새로운 계좌를 생성하게 할것인지, 은행에서 계좌생성시 같이 리스트를 생성할것인지는
-//회의 이후 결정
+                    //아래는 참고용(관리자꺼) 고객은 은행에 계좌번호와 비밀번호 입력시
+                    //새로운 계좌를 생성하게 할것인지, 은행에서 계좌생성시 같이 리스트를 생성할것인지는
+                    //회의 이후 결정
                     System.out.println(bankAll.customerlist.getterCustomerLength());
                     if (bankAll.customerlist.getCustomerPasswordCheck(temAccountNumber, customerPassword)) {
                         boolean isTrue = false;
