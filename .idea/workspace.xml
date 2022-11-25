@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="커밋 테스트 입니다.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/BankList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/BankList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Main.java" afterDir="false" />
-    </list>
+    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="2022.11.25 계좌 번호 조회 수정" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
