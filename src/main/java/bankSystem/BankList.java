@@ -17,7 +17,6 @@ class BankSystemItem {
         this.password = password;
         this.accountNumber = accountNumber;
         this.date= date;
-        this.balance = balance;
     }
     //순서대로 생성수, 고객이름,비밀번호,계좌번호,날짜이다.
     public int getBankIdx(){return idx;}
@@ -113,7 +112,7 @@ public class BankList {
 
     // 잔고에서 출금하는 메소드
     public int withdrawSetter(BankSystemItem account, int withdraw){
-            account.setDeposit(withdraw);
+            account.setWithdraw(withdraw);
             return account.getCustomerBalance();
     }
 
