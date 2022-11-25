@@ -11,7 +11,7 @@ public class Customer extends Bank {
             return;
         }
         while (true) {
-            System.out.println("계좌번호로 계좌찾기 (1)\n" + "소유주명으로 계좌찾기(2)");
+            System.out.println("계좌번호로 계좌찾기을 원하시면 1번.\n" + "소유주명으로 계좌찾기을 원하시면 2번");
             int numberOrName = Integer.parseInt(sc.nextLine());
 
             switch (numberOrName) {
