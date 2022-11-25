@@ -5,13 +5,6 @@ import java.util.Scanner;
 public class Bank {
     public static BankList banklist = new BankList();
 
-    CustomerList customerList;
-    Customer customer;
-
-    public Bank() {
-        customerList = new CustomerList();
-    }
-
     //계좌 생성 메소드
     public void bankCreate(){
         String  name, password, AccountNumber;
