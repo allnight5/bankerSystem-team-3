@@ -23,6 +23,7 @@ public class Main {
 
         boolean isFirstWhile = false;
         int adminCustomer = 0;
+            mainIn.banner();
         while (!isFirstWhile) {
             mainIn.run();
             // 메뉴 입력받기
@@ -94,11 +95,14 @@ public class Main {
                     }
                     break;
                 case 2:
-                    Customer cu = new Customer();
-                    cu.selectAccountView();
+                    customer.customertAccountView();
+                    break;
+                case 3:
+                System.out.println("프로그램을 종료합니다.");
+                break;
 
 
-            }
+            } break;
         }
     }
 }

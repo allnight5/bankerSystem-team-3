@@ -8,7 +8,7 @@ public class Customer extends Bank {
     Transaction transaction = new Transaction();
     TransactionInterface transactionInterface = new TransactionInterface();
 
-    public void selectAccountView() {
+    public void customertAccountView() {
         Scanner scanner = new Scanner(System.in);
         if (banklist.lengthGetter() == 0) {
             System.out.println("가지고 계신 계좌가 없습니다.");
@@ -28,6 +28,12 @@ public class Customer extends Bank {
                         if (accountNumber == null) {
                             System.out.println("고객이 가진 계좌가 없습니다.");
                         } else {
+                            System.out.println("비밀번호를 입력해주세요");
+                            String password = scanner.nextLine();
+                            if(!(accountNumber.getCustomerPassword().equals(password))) {
+                                System .out.println("비밀번호가 틀렸습니다.");
+                                break;
+                            }
                             while (true) {
                                 System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).");
                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
@@ -70,6 +76,12 @@ public class Customer extends Bank {
                         if (accountName == null) {
                             System.out.println("고객이 가진 계좌가 없습니다.");
                         } else {
+                            System.out.println("비밀번호를 입력해주세요");
+                            String password = scanner.nextLine();
+                            if(!(accountName.getCustomerPassword().equals(password))) {
+                                System .out.println("비밀번호가 틀렸습니다.");
+                                break;
+                            }
                             while (true) {
                                 System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).");
                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
