@@ -1,9 +1,12 @@
 package bankSystem;
 
+import bankSystem.interFace.TransactionInterface;
+
 import java.util.Scanner;
 
 public class Customer extends Bank {
     Transaction transaction = new Transaction();
+    TransactionInterface transactionInterface = new TransactionInterface();
 
     public void selectAccountView() {
         Scanner scanner = new Scanner(System.in);
@@ -32,14 +35,18 @@ public class Customer extends Bank {
                                 switch (depositOrWithdraw) {
                                     case 1:
                                         System.out.println("입금하시려는 액수를 입력해주세요.");
+                                        String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         banklist.depositSetter(accountNumber, deposit);
+                                        transaction.TransactionSetterByAccount(checkAccountNumber, tempType, deposit, );
                                         break;
 
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
+                                        String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         banklist.withdrawSetter(accountNumber, withdraw);
+                                        transaction.TransactionSetterByName(checkAccountNumber, tempType2, withdraw, );
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");

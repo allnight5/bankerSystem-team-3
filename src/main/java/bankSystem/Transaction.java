@@ -9,16 +9,14 @@ import java.util.HashMap;
 
 class TransactionItems {
     private int finalBalance, amountOfTransfer, idx;
-    private String userName, accountNum, bankName, password, date;
+    private String userName, accountNum, password, date;
 
-    public TransactionItems(int idx, String userName, String password, String date, String accountNum, int amountOfTransfer, String bankName, int finalBalance) {
+    public TransactionItems(int idx, String userName, String date, String accountNum, String type, int amountOfTransfer, int finalBalance) {
         this.idx = idx;
         this.finalBalance = finalBalance;
         this.userName = userName;
         this.accountNum = accountNum;
-        this.bankName = bankName;
         this.amountOfTransfer = amountOfTransfer;
-        this.password = password;
         this.date = date;
     }
 }
@@ -33,14 +31,23 @@ public class Transaction {
     public Transaction() { listOfTransactionsByName = new HashMap<>(); }
     static int transactionCount = 0;
 
-    public void TransactionSetter(String userName, String password, String accountNum, String type, int amountOfTransfer, String bankName, int finalBalance) {
+    public void TransactionSetterByName(String userName, String type, int amountOfTransfer, int finalBalance) {
         transactionCount++;
         Date dateUpdate = new Date();
         SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateTime = formatterUpdate.format(dateUpdate);
-        TransactionItems transactionData = new TransactionItems(transactionCount, userName, password, accountNum, type, amountOfTransfer, bankName, finalBalance);
+        TransactionItems transactionData = new TransactionItems(transactionCount, userName, dateTime, null, type, amountOfTransfer, finalBalance);
         transactionItems.add(transactionData);
         listOfTransactionsByName.put(userName, transactionItems);
+    }
+
+    public void TransactionSetterByAccount(String accountNum, String type, int amountOfTransfer, int finalBalance) {
+        transactionCount++;
+        Date dateUpdate = new Date();
+        SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String dateTime = formatterUpdate.format(dateUpdate);
+        TransactionItems transactionData = new TransactionItems(transactionCount, null, dateTime, accountNum, type, amountOfTransfer, finalBalance);
+        transactionItems.add(transactionData);
         listOfTransactionsByAccount.put(accountNum, transactionItems);
     }
 
