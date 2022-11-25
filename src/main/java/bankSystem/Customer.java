@@ -38,8 +38,8 @@ public class Customer extends Bank {
                                         String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         banklist.depositSetter(accountNumber, deposit);
-                                        int tempDepositBalance = banklist.depositSetter(accountNumber, deposit);
-                                        transaction.TransactionSetterByAccount(checkAccountNumber, tempType, deposit, tempDepositBalance);
+                                        int tempDepositBalance =  banklist.depositSetter(accountNumber, deposit);
+                                        transaction.TransactionSetter(null, checkAccountNumber, tempType, deposit, tempDepositBalance);
                                         break;
 
                                     case 2:
@@ -48,7 +48,7 @@ public class Customer extends Bank {
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         banklist.withdrawSetter(accountNumber, withdraw);
                                         int tempWithdrawBalance = banklist.withdrawSetter(accountNumber, withdraw);
-                                        transaction.TransactionSetterByName(checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
+                                        transaction.TransactionSetter(null, checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");
@@ -91,10 +91,8 @@ public class Customer extends Bank {
                                         break;
                                     case 4:
                                         System.out.println("계좌 잔고는 " + banklist.readBalance(accountName) + "원 입니다.");
-
                                 }
                                 break;
-
                             }
                         }
                     }
