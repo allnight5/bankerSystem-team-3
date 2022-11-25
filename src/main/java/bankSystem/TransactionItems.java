@@ -1,12 +1,24 @@
 package bankSystem;
 
 class TransactionItems {
-    private int finalBalance, amountOfTransfer, idx;
+    private int finalBalance;
+    private int amountOfTransfer;
+    private int idx;
     private String userName;
     private String accountNum;
     private String password;
     private String date;
     private String type;
+
+    public TransactionItems(int idx, String userName, String date, String accountNum, String type, int amountOfTransfer, int finalBalance) {
+        this.idx = idx;
+        this.finalBalance = finalBalance;
+        this.userName = userName;
+        this.accountNum = accountNum;
+        this.amountOfTransfer = amountOfTransfer;
+        this.date = date;
+        this.type = type;
+    }
 
     public String getType() {
         return type;
@@ -70,15 +82,5 @@ class TransactionItems {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public TransactionItems(int idx, String userName, String date, String accountNum, String type, int amountOfTransfer, int finalBalance) {
-        this.idx = idx;
-        this.finalBalance = finalBalance;
-        this.userName = userName;
-        this.accountNum = accountNum;
-        this.amountOfTransfer = amountOfTransfer;
-        this.date = date;
-        this.type = type;
     }
 }
