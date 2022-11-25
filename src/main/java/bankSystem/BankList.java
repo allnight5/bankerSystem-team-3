@@ -117,7 +117,7 @@ public class BankList {
     }
 
     // 잔고 확인해주는 메소드
-    public int readBalance(BankSystemItem account){
+    public int referBalance(BankSystemItem account){
        return account.getCustomerBalance();
     }
     //은행 3번 삭제 메소드

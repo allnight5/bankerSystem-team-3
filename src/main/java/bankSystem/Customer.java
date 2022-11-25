@@ -8,7 +8,7 @@ public class Customer extends Bank {
     Transaction transaction = new Transaction();
     TransactionInterface transactionInterface = new TransactionInterface();
 
-    public void customertAccountView() {
+    public void referCustomerAccount() {
         Scanner scanner = new Scanner(System.in);
         if (banklist.lengthGetter() == 0) {
             System.out.println("가지고 계신 계좌가 없습니다.");
@@ -59,7 +59,7 @@ public class Customer extends Bank {
                                         transaction.getTransactionListByAccountNumber(checkAccountNumber);
                                         break;
                                     case 4:
-                                        System.out.println("계좌 잔고는 " + banklist.readBalance(accountNumber) + "원 입니다.");
+                                        System.out.println("계좌 잔고는 " + banklist.referBalance(accountNumber) + "원 입니다.");
 
                                 }
                                 break;
@@ -104,7 +104,7 @@ public class Customer extends Bank {
                                         transaction.getTransactionListByUserName(checkAccountName);
                                         break;
                                     case 4:
-                                        System.out.println("계좌 잔고는 " + banklist.readBalance(accountName) + "원 입니다.");
+                                        System.out.println("계좌 잔고는 " + banklist.referBalance(accountName) + "원 입니다.");
                                 }
                                 break;
                             }

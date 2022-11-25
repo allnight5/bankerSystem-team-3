@@ -95,7 +95,7 @@ public class Main {
                     }
                     continue;
                 case 2:
-                    customer.customertAccountView();
+                    customer.referCustomerAccount();
                     continue;
                 case 3:
                     System.out.println("프로그램을 종료합니다.");
