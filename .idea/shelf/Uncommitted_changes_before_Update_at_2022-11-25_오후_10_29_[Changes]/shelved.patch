@@ -1,0 +1,117 @@
+Index: src/main/java/bankSystem/interFace/MainInterface.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package bankSystem.interFace;\r\n\r\npublic class MainInterface {\r\n    public void run(){\r\n        System.out.println(\r\n                \"..######.....########........###.......########.....########.......###.......########........###.......##....##....##....##\\n\" +\r\n                \".##....##....##.....##......##.##......##.....##.......##.........##.##......##.....##......##.##......###...##....##...##.\\n\" +\r\n                \".##..........##.....##.....##...##.....##.....##.......##........##...##.....##.....##.....##...##.....####..##....##..##..\\n\" +\r\n                \"..######.....########.....##.....##....########........##.......##.....##....########.....##.....##....##.##.##....#####...\\n\" +\r\n                \".......##....##...........#########....##...##.........##.......#########....##.....##....#########....##..####....##..##..\\n\" +\r\n                \".##....##....##...........##.....##....##....##........##.......##.....##....##.....##....##.....##....##...###....##...##.\\n\" +\r\n                \"..######.....##...........##.....##....##.....##.......##.......##.....##....########.....##.....##....##....##....##....##\\n\");\r\n        System.out.println(\"---------목록---------\");\r\n        System.out.println(\"메뉴를 선택해주세요\");\r\n        System.out.println(\"1.관리자\");\r\n        System.out.println(\"2.고객\");\r\n        System.out.println(\"3.종료\");\r\n        System.out.println(\"---------------------\");\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/bankSystem/interFace/MainInterface.java b/src/main/java/bankSystem/interFace/MainInterface.java
+--- a/src/main/java/bankSystem/interFace/MainInterface.java	(revision 1497d4c414cd802c143d72c2ca7ef061272fe159)
++++ b/src/main/java/bankSystem/interFace/MainInterface.java	(date 1669382676770)
+@@ -1,15 +1,17 @@
+ package bankSystem.interFace;
+ 
+ public class MainInterface {
+-    public void run(){
++    public void banner() {
+         System.out.println(
+-                "..######.....########........###.......########.....########.......###.......########........###.......##....##....##....##\n" +
+-                ".##....##....##.....##......##.##......##.....##.......##.........##.##......##.....##......##.##......###...##....##...##.\n" +
+-                ".##..........##.....##.....##...##.....##.....##.......##........##...##.....##.....##.....##...##.....####..##....##..##..\n" +
+-                "..######.....########.....##.....##....########........##.......##.....##....########.....##.....##....##.##.##....#####...\n" +
+-                ".......##....##...........#########....##...##.........##.......#########....##.....##....#########....##..####....##..##..\n" +
+-                ".##....##....##...........##.....##....##....##........##.......##.....##....##.....##....##.....##....##...###....##...##.\n" +
+-                "..######.....##...........##.....##....##.....##.......##.......##.....##....########.....##.....##....##....##....##....##\n");
++                        "..######.....########........###.......########.....########.......###.......########........###.......##....##....##....##\n" +
++                        ".##....##....##.....##......##.##......##.....##.......##.........##.##......##.....##......##.##......###...##....##...##.\n" +
++                        ".##..........##.....##.....##...##.....##.....##.......##........##...##.....##.....##.....##...##.....####..##....##..##..\n" +
++                        "..######.....########.....##.....##....########........##.......##.....##....########.....##.....##....##.##.##....#####...\n" +
++                        ".......##....##...........#########....##...##.........##.......#########....##.....##....#########....##..####....##..##..\n" +
++                        ".##....##....##...........##.....##....##....##........##.......##.....##....##.....##....##.....##....##...###....##...##.\n" +
++                        "..######.....##...........##.....##....##.....##.......##.......##.....##....########.....##.....##....##....##....##....##\n");
++    }
++    public void run(){
+         System.out.println("---------목록---------");
+         System.out.println("메뉴를 선택해주세요");
+         System.out.println("1.관리자");
+Index: src/main/java/bankSystem/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package bankSystem;\r\n\r\nimport bankSystem.interFace.*;\r\n\r\nimport java.util.InputMismatchException;\r\nimport java.util.Scanner;\r\n\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n        Scanner sc = new Scanner(System.in);\r\n        //인터페이스들을 생성하기위한 부분\r\n        MainInterface mainIn = new MainInterface();\r\n        CustomerInterface customerInterface = new CustomerInterface();\r\n        RePasswordInterface rePasswordInterface = new RePasswordInterface();\r\n        BankInterface bankInterface = new BankInterface();\r\n        //고객인지 관리자인지 알기위한 관리자비밀번호\r\n        String adminpassword = \"1234\";\r\n        //고객 정보 전체를를 담아둘 은행 하나 생성;\r\n        Bank bankAll = new Bank();\r\n        Customer customer = new Customer();\r\n        //고객 창으로 이동을 위해 선언\r\n\r\n        boolean isFirstWhile = false;\r\n        int adminCustomer = 0;\r\n        while (!isFirstWhile) {\r\n            mainIn.run();\r\n            // 메뉴 입력받기\r\n            // InputMismatchException에 대한 예외처리 진행\r\n            // 숫자를 제외한 형식을 입력했을때\r\n            // 시스템 정지가 아닌 다시 입력하도록 함\r\n            try {\r\n                //고객인가 관리자인가 구분자 입력\r\n                adminCustomer = sc.nextInt();\r\n            } catch (InputMismatchException e) {\r\n                System.out.println(\"숫자만 입력해주시기 바랍니다.\");\r\n                sc = new Scanner(System.in);\r\n                continue;\r\n            }\r\n            switch (adminCustomer) {\r\n                //관리자인가 고객인가 선택\r\n                //메인밖에 클래스로 뺄것인가 아니면 이상태로 할것인가는;;\r\n                //완성하거나 or 회의하고 바꾸는걸로\r\n                //case1로 가면 뱅크 클래스 시스템으로 case2로 가면 고객 클래스 시스템으로\r\n                //가는 형식 등\r\n                case 1:\r\n                    System.out.println(\"관리자 비밀번호를 입력해주시기 바랍니다.\");\r\n                    //비밀번호 입력\r\n                    sc = new Scanner(System.in);\r\n                    String tempass = sc.nextLine();\r\n                    //비밀번호 일치여부 확인\r\n                    if (adminpassword.equals(tempass)) {\r\n                        //while문을 돌리기 위한 변수\r\n                        boolean isInOut = false;\r\n                        //관리자 메인으로 이동하거나 여기에서 while문 을 돌릴곳\r\n                        while (!isInOut) {\r\n                            bankInterface.bankRun();\r\n                            sc = new Scanner(System.in);\r\n                            int adminSelect = 0;\r\n                            try {\r\n                                adminSelect = sc.nextInt();\r\n                            } catch (InputMismatchException e) {\r\n                                System.out.println(\"숫자만 입력해주시기 바랍니다.\");\r\n                                continue;\r\n                            }\r\n                            switch (adminSelect) {\r\n                                case 1:\r\n                                    bankAll.bankCreate();\r\n                                    break;\r\n\r\n                                case 2:\r\n                                    bankAll.changeCustomer();\r\n                                    break;\r\n\r\n                                case 3:\r\n                                    bankAll.deleteCustomer();\r\n                                    break;\r\n\r\n                                case 4:\r\n                                    bankAll.selectAccountView();\r\n                                    break;\r\n\r\n                                case 5:\r\n                                    bankAll.allAccountView();\r\n                                    break;\r\n\r\n                                default:\r\n                                    isInOut = true;\r\n                                    break;\r\n                            }\r\n                        }\r\n                    } else {\r\n                        rePasswordInterface.rePass();\r\n                    }\r\n                    break;\r\n                case 2:\r\n                    Customer cu = new Customer();\r\n                    cu.selectAccountView();\r\n\r\n\r\n            }\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/bankSystem/Main.java b/src/main/java/bankSystem/Main.java
+--- a/src/main/java/bankSystem/Main.java	(revision 1497d4c414cd802c143d72c2ca7ef061272fe159)
++++ b/src/main/java/bankSystem/Main.java	(date 1669382946226)
+@@ -23,6 +23,7 @@
+ 
+         boolean isFirstWhile = false;
+         int adminCustomer = 0;
++            mainIn.banner();
+         while (!isFirstWhile) {
+             mainIn.run();
+             // 메뉴 입력받기
+@@ -94,11 +95,14 @@
+                     }
+                     break;
+                 case 2:
+-                    Customer cu = new Customer();
+-                    cu.selectAccountView();
++                    customer.customertAccountView();
++                    break;
++                case 3:
++                System.out.println("프로그램을 종료합니다.");
++                break;
+ 
+ 
+-            }
++            } break;
+         }
+     }
+ }
+Index: src/main/java/bankSystem/Customer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package bankSystem;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Customer extends Bank {\r\n    Transaction transaction = new Transaction();\r\n\r\n    public void selectAccountView() {\r\n        Scanner scanner = new Scanner(System.in);\r\n        if (banklist.lengthGetter() == 0) {\r\n            System.out.println(\"가지고 계신 계좌가 없습니다.\");\r\n            return;\r\n        }\r\n        while (true) {\r\n            System.out.println(\"계좌번호로 계좌찾기을 원하시면 (1).\\n\" + \"소유주명으로 계좌찾기을 원하시면 (2).\");\r\n            int numberOrName = Integer.parseInt(scanner.nextLine());\r\n\r\n            switch (numberOrName) {\r\n                case 1:\r\n                    System.out.println(\"찾고 싶은 계좌명을 입력해주세요\");\r\n                    String checkAccountNumber = scanner.nextLine();\r\n\r\n                    for (int i = 0; i < banklist.lengthGetter(); i++) {\r\n                        BankSystemItem accountNumber = banklist.GetterAccountNumber(checkAccountNumber, i);\r\n                        if (accountNumber == null) {\r\n                            System.out.println(\"고객이 가진 계좌가 없습니다.\");\r\n                        } else {\r\n                            while (true) {\r\n                                System.out.println(\"입금을 원하시면 (1).\\n\" + \"출금을 원하시면 (2).\\n\" + \"거래내역 조회를 원하시면 (3).\\n\" + \"잔고 조회를 원하시면 (4).\");\r\n                                int depositOrWithdraw = Integer.parseInt(scanner.nextLine());\r\n\r\n                                switch (depositOrWithdraw) {\r\n                                    case 1:\r\n                                        System.out.println(\"입금하시려는 액수를 입력해주세요.\");\r\n                                        int deposit = Integer.parseInt(scanner.nextLine());\r\n                                        banklist.depositSetter(accountNumber, deposit);\r\n                                        break;\r\n\r\n                                    case 2:\r\n                                        System.out.println(\"출금하시려는 액수를 입력해주세요.\");\r\n                                        int withdraw = Integer.parseInt(scanner.nextLine());\r\n                                        banklist.withdrawSetter(accountNumber, withdraw);\r\n                                        break;\r\n                                    case 3:\r\n                                        System.out.println(\"-------거래내역-------\");\r\n                                        transaction.transactionListGetterByAccount(checkAccountNumber);\r\n                                        break;\r\n                                    case 4:\r\n                                        System.out.println(\"계좌 잔고는 \" + banklist.readBalance(accountNumber) + \"원 입니다.\");\r\n\r\n                                }\r\n                                break;\r\n                            }\r\n                        }\r\n                    } break;\r\n                case 2:\r\n                    System.out.println(\"찾고 싶은 계좌의 소유주명을 입력해주세요\");\r\n                    String checkAccountName = scanner.nextLine();\r\n                    for (int i = 0; i < banklist.lengthGetter(); i++) {\r\n                        BankSystemItem accountName = banklist.Getter(checkAccountName, i);\r\n                        if (accountName == null) {\r\n                            System.out.println(\"고객이 가진 계좌가 없습니다.\");\r\n                        } else {\r\n                            while (true) {\r\n                                System.out.println(\"입금을 원하시면 (1).\\n\" + \"출금을 원하시면 (2).\\n\" + \"거래내역 조회를 원하시면 (3).\\n\" + \"잔고 조회를 원하시면 (4).\");\r\n                                int depositOrWithdraw = Integer.parseInt(scanner.nextLine());\r\n\r\n                                switch (depositOrWithdraw) {\r\n                                    case 1:\r\n                                        System.out.println(\"입금하시려는 액수를 입력해주세요.\");\r\n                                        int deposit = Integer.parseInt(scanner.nextLine());\r\n                                        banklist.depositSetter(accountName, deposit);\r\n                                        break;\r\n                                    case 2:\r\n                                        System.out.println(\"출금하시려는 액수를 입력해주세요.\");\r\n                                        int withdraw = Integer.parseInt(scanner.nextLine());\r\n                                        banklist.withdrawSetter(accountName, withdraw);\r\n                                        break;\r\n                                    case 3:\r\n                                        System.out.println(\"-------거래내역-------\");\r\n                                        transaction.transactionListGetterByName(checkAccountName);\r\n                                        break;\r\n                                    case 4:\r\n                                        System.out.println(\"계좌 잔고는 \" + banklist.readBalance(accountName) + \"원 입니다.\");\r\n\r\n                                }\r\n                                break;\r\n\r\n                            }\r\n                        }\r\n                    }\r\n            } break;\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/bankSystem/Customer.java b/src/main/java/bankSystem/Customer.java
+--- a/src/main/java/bankSystem/Customer.java	(revision 1497d4c414cd802c143d72c2ca7ef061272fe159)
++++ b/src/main/java/bankSystem/Customer.java	(date 1669382564815)
+@@ -5,7 +5,7 @@
+ public class Customer extends Bank {
+     Transaction transaction = new Transaction();
+ 
+-    public void selectAccountView() {
++    public void customertAccountView() {
+         Scanner scanner = new Scanner(System.in);
+         if (banklist.lengthGetter() == 0) {
+             System.out.println("가지고 계신 계좌가 없습니다.");
+@@ -25,6 +25,12 @@
+                         if (accountNumber == null) {
+                             System.out.println("고객이 가진 계좌가 없습니다.");
+                         } else {
++                            System.out.println("비밀번호를 입력해주세요");
++                            String password = scanner.nextLine();
++                            if(!(accountNumber.getCustomerPassword().equals(password))) {
++                                System .out.println("비밀번호가 틀렸습니다.");
++                                break;
++                            }
+                             while (true) {
+                                 System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).");
+                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
+@@ -61,6 +67,12 @@
+                         if (accountName == null) {
+                             System.out.println("고객이 가진 계좌가 없습니다.");
+                         } else {
++                            System.out.println("비밀번호를 입력해주세요");
++                            String password = scanner.nextLine();
++                            if(!(accountName.getCustomerPassword().equals(password))) {
++                                System .out.println("비밀번호가 틀렸습니다.");
++                                break;
++                            }
+                             while (true) {
+                                 System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).");
+                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
