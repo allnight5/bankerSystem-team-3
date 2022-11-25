@@ -17,11 +17,11 @@ public class Customer extends Bank {
             switch (numberOrName) {
                 case 1:
                     System.out.println("찾고 싶은 계좌명을 입력해주세요");
-                    String accountNumber = scanner.nextLine();
+                    String checkAccountNumber = scanner.nextLine();
 
                     for (int i = 0; i < banklist.lengthGetter(); i++) {
-                        BankSystemItem temp = banklist.GetterAccountNumber(accountNumber, i);
-                        if (temp == null) {
+                        BankSystemItem accountNumber = banklist.GetterAccountNumber(checkAccountNumber, i);
+                        if (accountNumber == null) {
                             System.out.println("고객이 가진 계좌가 없습니다.");
                         } else {
                             while (true) {
@@ -38,13 +38,44 @@ public class Customer extends Bank {
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         int withdraw = Integer.parseInt(scanner.nextLine());
-                                        banklist.withdrawSetter(withdraw);
+                                        banklist.withdrawSetter(accountNumber, withdraw);
                                         break;
-                                } break;
+                                }
+                                break;
+                            }
+                        }
+                    } break;
+                case 2:
+                    System.out.println("찾고 싶은 계좌의 소유주명을 입력해주세요");
+                    String checkAccountName = scanner.nextLine();
+                    for (int i = 0; i < banklist.lengthGetter(); i++) {
+                        BankSystemItem accountName = banklist.Getter(checkAccountName, i);
+                        if (accountName == null) {
+                            System.out.println("고객이 가진 계좌가 없습니다.");
+                        } else {
+                            while (true) {
+                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).");
+                                int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
+
+                                switch (depositOrWithdraw) {
+                                    case 1:
+                                        System.out.println("입금하시려는 액수를 입력해주세요.");
+                                        int deposit = Integer.parseInt(scanner.nextLine());
+                                        banklist.depositSetter(accountName, deposit);
+                                        break;
+
+                                    case 2:
+                                        System.out.println("출금하시려는 액수를 입력해주세요.");
+                                        int withdraw = Integer.parseInt(scanner.nextLine());
+                                        banklist.withdrawSetter(accountName, withdraw);
+                                        break;
+                                }
+                                break;
+
                             }
                         }
                     }
-            }
+            } break;
         }
     }
 }
