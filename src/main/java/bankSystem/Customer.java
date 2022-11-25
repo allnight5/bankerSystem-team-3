@@ -3,6 +3,7 @@ package bankSystem;
 public class Customer {
 
     CustomerList customerlist;
+    // 안녕하세요
 
     public Customer(){
         customerlist = new CustomerList();
