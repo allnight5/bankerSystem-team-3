@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="커밋 테스트 입니다." />
+    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="커밋 테스트 입니다.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/BankList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/BankList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,14 +20,12 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="Git.Pull.Settings">
-    <option name="OPTIONS">
-      <set>
-        <option value="REBASE" />
-      </set>
-    </option>
-  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="a06d8036d9075361fae1ced5e319277519f1e9b4" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -82,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669359408562</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="커밋 테스트 입니다.">
+      <created>1669360441264</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1669360441264</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

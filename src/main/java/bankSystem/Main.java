@@ -94,6 +94,9 @@ public class Main {
                     }
                     break;
                 case 2:
+                    Customer cu = new Customer();
+                    cu.selectAccountView();
+
                     sc = new Scanner(System.in);
                     //계좌번호를 입력받을 변수
                     System.out.println("계좌번호를 입력해주시기 바랍니다 :");

@@ -121,6 +121,16 @@ public class BankList {
         }else{
             return null;
         }
+
+    //은행 4번내용 계좌번호 검색 내용 출력
+    //이름 검색시 있다면 그 문자열 반환해준다.
+    }public BankSystemItem GetterAccountNumber(String accountNumber, int idx){
+        BankSystemItem item = bankArraylist.get(idx);
+        if(item.getCustomerAccountNumber().equals(accountNumber)){
+            return item;
+        }else{
+            return null;
+        }
     }
     //5번 내용 반환
     public BankSystemItem GetterAll(int idx){

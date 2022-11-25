@@ -21,7 +21,7 @@ public class Customer extends Bank {
                     String accountNumber = sc.nextLine();
 
                     for (int i = 0; i < banklist.lengthGetter(); i++) {
-                        BankSystemItem temp = banklist.Getter(accountNumber, i);
+                        BankSystemItem temp = banklist.GetterAccountNumber(accountNumber, i);
                         if (temp == null) {
                             System.out.println("고객이 가진 계좌가 없습니다.");
                             continue;
