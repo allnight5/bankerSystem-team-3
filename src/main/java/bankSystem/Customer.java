@@ -3,6 +3,7 @@ package bankSystem;
 import java.util.Scanner;
 
 public class Customer extends Bank {
+
     public void selectAccountView() {
         Scanner sc = new Scanner(System.in);
         if (banklist.lengthGetter() == 0) {
@@ -12,8 +13,6 @@ public class Customer extends Bank {
         while (true) {
             System.out.println("계좌번호로 계좌찾기 (1)\n" + "소유주명으로 계좌찾기(2)");
             int numberOrName = Integer.parseInt(sc.nextLine());
-
-            CustomerList customerlist;
 
             switch (numberOrName) {
                 case 1:

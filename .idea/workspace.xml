@@ -4,10 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="2022.11.25 계좌 번호 조회 수정">
       <change afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Transaction.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/bankSystem/interFace/TransactionInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="계좌 조회 테스트입니다.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/BankList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/BankList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankSystem/CustomerAccount.java" beforeDir="false" />
+>>>>>>> b90f6eebe8d10e1624fb303efe3719dd74f3570c
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669360441264</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="계좌 조회 테스트입니다.">
+      <created>1669362455298</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669362455298</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +136,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="커밋 테스트 입니다." />
-    <option name="LAST_COMMIT_MESSAGE" value="커밋 테스트 입니다." />
+    <MESSAGE value="계좌 조회 테스트입니다." />
+    <option name="LAST_COMMIT_MESSAGE" value="계좌 조회 테스트입니다." />
   </component>
 </project>
