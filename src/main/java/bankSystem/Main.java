@@ -108,8 +108,8 @@ public class Main {
                     //아래는 참고용(관리자꺼) 고객은 은행에 계좌번호와 비밀번호 입력시
                     //새로운 계좌를 생성하게 할것인지, 은행에서 계좌생성시 같이 리스트를 생성할것인지는
                     //회의 이후 결정
-                    System.out.println(bankAll.customerlist.getterCustomerLength());
-                    if (bankAll.customerlist.getCustomerPasswordCheck(temAccountNumber, customerPassword)) {
+                    System.out.println(bankAll.customerList.getterCustomerLength());
+                    if (bankAll.customerList.getCustomerPasswordCheck(temAccountNumber, customerPassword)) {
                         boolean isTrue = false;
 
                         while (!isTrue) {
@@ -125,13 +125,13 @@ public class Main {
                             }
                             switch (customerSwitch) {
                                 case 1://입급
-                                    bankAll.customerlist.setterPlustMoney(temAccountNumber);
+                                    bankAll.customerList.setterPlustMoney(temAccountNumber);
                                     break;
                                 case 2://출금
-                                    bankAll.customerlist.setterMinusMoney(temAccountNumber);
+                                    bankAll.customerList.setterMinusMoney(temAccountNumber);
                                     break;
                                 case 3://잔고확인
-                                    bankAll.customerlist.getterCustomer(temAccountNumber);
+                                    bankAll.customerList.getterCustomer(temAccountNumber);
                                     break;
                                 default://종료
                                     System.out.println("종료합니다.");
