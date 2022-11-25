@@ -26,7 +26,7 @@ public class Customer extends Bank {
                     for (int i = 0; i < banklist.lengthGetter(); i++) {
                         BankSystemItem accountNumber = banklist.GetterAccountNumber(checkAccountNumber, i);
                         if (accountNumber == null) {
-                            System.out.println("고객이 가진 계좌가 없습니다.");
+                            if(i == (banklist.lengthGetter()-1)){System.out.println("일치하는 계좌가 없습니다.");}
                         } else {
                             System.out.println("비밀번호를 입력해주세요");
                             String password = scanner.nextLine();
@@ -74,7 +74,7 @@ public class Customer extends Bank {
                     for (int i = 0; i < banklist.lengthGetter(); i++) {
                         BankSystemItem accountName = banklist.Getter(checkAccountName, i);
                         if (accountName == null) {
-                            System.out.println("고객이 가진 계좌가 없습니다.");
+                            if(i == (banklist.lengthGetter()-1)){System.out.println("일치하는 계좌가 없습니다.");}
                         } else {
                             System.out.println("비밀번호를 입력해주세요");
                             String password = scanner.nextLine();

@@ -92,8 +92,7 @@ public class Main {
                         }
                     } else {
                         rePasswordInterface.rePass();
-                    }
-                    break;
+                    }break;
                 case 2:
                     customer.customertAccountView();
                     break;
@@ -102,7 +101,7 @@ public class Main {
                 break;
 
 
-            } break;
+            }
         }
     }
 }
