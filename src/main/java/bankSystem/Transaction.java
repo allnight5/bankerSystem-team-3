@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Transaction {
-    ArrayList<TransactionItems> transactionItems = new ArrayList<>();
+    ArrayList<TransactionData> transactionItems = new ArrayList<>();
 
     int transactionMarkerCount = 0;
 
@@ -14,7 +14,7 @@ public class Transaction {
         Date date = new Date();
         SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateTime = formatterUpdate.format(date);
-        TransactionItems transactionData = new TransactionItems(transactionMarkerCount, userName, dateTime, accountNumber, type, amountOfTransfer,
+        TransactionData transactionData = new TransactionData(transactionMarkerCount, userName, dateTime, accountNumber, type, amountOfTransfer,
                 finalBalance);
         transactionItems.add(transactionData);
     }

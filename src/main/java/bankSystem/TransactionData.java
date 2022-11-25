@@ -1,6 +1,6 @@
 package bankSystem;
 
-class TransactionItems {
+class TransactionData {
     private int finalBalance;
     private int amountOfTransfer;
     private int idx;
@@ -10,7 +10,7 @@ class TransactionItems {
     private String date;
     private String type;
 
-    public TransactionItems(int idx, String userName, String date, String accountNum, String type, int amountOfTransfer, int finalBalance) {
+    public TransactionData(int idx, String userName, String date, String accountNum, String type, int amountOfTransfer, int finalBalance) {
         this.idx = idx;
         this.finalBalance = finalBalance;
         this.userName = userName;
