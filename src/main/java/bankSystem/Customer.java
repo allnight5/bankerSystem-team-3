@@ -14,7 +14,6 @@ public class Customer extends Bank {
             int numberOrName = Integer.parseInt(sc.nextLine());
 
             CustomerList customerlist;
-            // 안녕하세요 안녕하세요!!!!!!!!!!!!!!!!
 
             switch (numberOrName) {
                 case 1:
