@@ -3,13 +3,13 @@ import bankSystem.interFace.BankInInterface;
 import java.util.Scanner;
 
 public class Bank {
-    public static BankList banklist;
+    public static BankList banklist = new BankList();
 
-    CustomerList customerlist;
+    CustomerList customerList;
     Customer customer;
-    public Bank(){
-        banklist = new BankList();
-        customerlist = new CustomerList();
+
+    public Bank() {
+        customerList = new CustomerList();
     }
 
     //계좌 생성 메소드

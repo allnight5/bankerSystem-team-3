@@ -97,49 +97,7 @@ public class Main {
                     Customer cu = new Customer();
                     cu.selectAccountView();
 
-                    sc = new Scanner(System.in);
-                    //계좌번호를 입력받을 변수
-                    System.out.println("계좌번호를 입력해주시기 바랍니다 :");
-                    String temAccountNumber = sc.nextLine();
-                    //비밀번호 입력
-                    System.out.println("비밀번호를 입력해주시기 바랍니다 :");
-                    String customerPassword = sc.nextLine();
 
-                    //아래는 참고용(관리자꺼) 고객은 은행에 계좌번호와 비밀번호 입력시
-                    //새로운 계좌를 생성하게 할것인지, 은행에서 계좌생성시 같이 리스트를 생성할것인지는
-                    //회의 이후 결정
-                    System.out.println(bankAll.customerlist.getterCustomerLength());
-                    if (bankAll.customerlist.getCustomerPasswordCheck(temAccountNumber, customerPassword)) {
-                        boolean isTrue = false;
-
-                        while (!isTrue) {
-                            sc = new Scanner(System.in);
-                            customerInterface.customerRun();
-                            //고객 메인으로 이동하거나 여기에서 while문 을 돌릴곳
-                            int customerSwitch;
-                            try {
-                                customerSwitch = sc.nextInt();
-                            } catch (InputMismatchException e) {
-                                System.out.println("숫자만 입력해주시기 바랍니다.");
-                                continue;
-                            }
-                            switch (customerSwitch) {
-                                case 1://입급
-                                    bankAll.customerlist.setterPlustMoney(temAccountNumber);
-                                    break;
-                                case 2://출금
-                                    bankAll.customerlist.setterMinusMoney(temAccountNumber);
-                                    break;
-                                case 3://잔고확인
-                                    bankAll.customerlist.getterCustomer(temAccountNumber);
-                                    break;
-                                default://종료
-                                    System.out.println("종료합니다.");
-                                    isTrue = true;
-                                    break;
-                            }
-                        }
-                    }
             }
         }
     }
