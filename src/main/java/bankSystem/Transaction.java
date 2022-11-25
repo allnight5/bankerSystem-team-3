@@ -11,7 +11,7 @@ class TransactionItems {
     private double finalBalance, amountOfTransfer;
     private String userName, accountNum, bankName, password, date;
 
-    public TransactionItems(String userName, String password, String date, String accountNum, double amountOfTransfer, String bankName, double finalBalance) {
+    public TransactionItems(String userName, String password, String date, String accountNum, int amountOfTransfer, String bankName, int finalBalance) {
         this.finalBalance = finalBalance;
         this.userName = userName;
         this.accountNum = accountNum;
@@ -30,8 +30,7 @@ public class Transaction {
 
     public Transaction() { listOfTransactions = new HashMap<>(); }
 
-    public void TransactionSetter(String userName, String password, String accountNum, String type, double amountOfTransfer, String bankName, double finalBalance) {
-        int balance = 0;
+    public void TransactionSetter(String userName, String password, String accountNum, String type, int amountOfTransfer, String bankName, int finalBalance) {
         Date dateUpdate = new Date();
         SimpleDateFormat formatterUpdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String dateTime = formatterUpdate.format(dateUpdate);
@@ -40,16 +39,8 @@ public class Transaction {
         listOfTransactions.put(userName, transactionItems);
     }
 
-    public void createAccountAction() {
-
-    }
-
-    public void withdrawAction() {
-
-    }
-
-    public void depositAction() {
-
+    public void TransactionListGetter(String userName) {
+        System.out.println(listOfTransactions.get(userName));
     }
 }
 
