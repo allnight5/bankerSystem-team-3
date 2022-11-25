@@ -5,10 +5,15 @@ import java.util.Scanner;
 public class Bank {
     public static BankList banklist;
 
-    public Bank(){banklist = new BankList();}
+    CustomerList customerlist;
+    Customer customer;
+    public Bank(){
+        banklist = new BankList();
+        customerlist = new CustomerList();
+    }
 
     //계좌 생성 메소드
-    public void BankCreate(){
+    public void bankCreate(){
         String  name, password, AccountNumber;
 //        LocalDateTime date = LocalDateTime.now();
         boolean isTrueAccountNumber = false;
