@@ -31,7 +31,7 @@ public class Customer extends Bank {
                             System.out.println("비밀번호를 입력해주세요");
                             String password = scanner.nextLine();
                             if(!(accountNumber.getCustomerPassword().equals(password))) {
-                                System .out.println("비밀번호가 틀렸습니다.");
+                                System.out.println("비밀번호가 틀렸습니다.");
                                 break;
                             }
                             while (true) {
