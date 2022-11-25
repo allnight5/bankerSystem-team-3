@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="2022.11.25 계좌 번호 조회 수정" />
+    <list default="true" id="365d5c1c-37cc-46b0-8eab-33b434b5d91a" name="Changes" comment="2022.11.25 계좌 번호 조회 수정">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bankSystem/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/bankSystem/interFace/TransactionInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +18,13 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -27,7 +38,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2I1kUHsCbR6yHxMvJ7ki4z6exBz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -72,6 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669356491636</updated>
       <workItem from="1669356494290" duration="325000" />
+      <workItem from="1669367715585" duration="1254000" />
     </task>
     <task id="LOCAL-00001" summary="커밋 테스트 입니다.">
       <created>1669359408562</created>
