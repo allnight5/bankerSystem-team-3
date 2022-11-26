@@ -66,7 +66,7 @@ public class Main {
                             }
                             switch (adminSelect) {
                                 case 1:
-                                    bankAll.bankCreate();
+                                    bankAll.enrollAccount();
                                     break;
 
                                 case 2:

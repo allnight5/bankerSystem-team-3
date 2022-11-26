@@ -5,10 +5,9 @@ import java.util.Scanner;
 public class Bank {
     public static BankList banklist = new BankList();
 
-    //계좌 생성 메소드
-    public void bankCreate(){
+    //계좌 등록 메소드
+    public void enrollAccount(){
         String  name, password, AccountNumber;
-//        LocalDateTime date = LocalDateTime.now();
         boolean isTrueAccountNumber = false;
         Scanner sc = new Scanner(System.in);
 
