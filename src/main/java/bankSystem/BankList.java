@@ -11,7 +11,7 @@ public class BankList {
 
 
     static int count = 0;
-    static ArrayList<BankSystemItem> bankArraylist;
+    ArrayList<BankSystemItem> bankArraylist;
 
     //리스트 한개를 생성한다;
     public BankList() {

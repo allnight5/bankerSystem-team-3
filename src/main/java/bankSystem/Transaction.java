@@ -38,8 +38,4 @@ public class Transaction {
             }
         }
     }
-
-    public String Shit(String userName) {
-        return null;
-    }
 }
