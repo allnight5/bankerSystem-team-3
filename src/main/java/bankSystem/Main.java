@@ -11,7 +11,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         //인터페이스들을 생성하기위한 부분
         MainInterface mainIn = new MainInterface();
-        CustomerInterface customerInterface = new CustomerInterface();
         RePasswordInterface rePasswordInterface = new RePasswordInterface();
         BankInterface bankInterface = new BankInterface();
         //고객인지 관리자인지 알기위한 관리자비밀번호
