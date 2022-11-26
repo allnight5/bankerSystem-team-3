@@ -38,4 +38,22 @@ public class Transaction {
             }
         }
     }
+
+    public String findAccountNumberByName(String name) {
+        for (int i = 0; i < transactionItems.size(); i++) {
+            if (transactionItems.get(i).getUserName().equals(name)) {
+                return transactionItems.get(i).getAccountNum();
+            }
+        }
+        return null;
+    }
+
+    public String findNameByAccountNumber(String accountNumber) {
+        for (int i = 0; i < transactionItems.size(); i++) {
+            if (transactionItems.get(i).getAccountNum().equals(accountNumber)) {
+                return transactionItems.get(i).getUserName();
+            }
+        }
+        return null;
+    }
 }

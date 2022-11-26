@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Bank {
     public static BankList banklist = new BankList();
+    Transaction transaction = new Transaction();
 
     //계좌 등록 메소드
     public void enrollAccount(){
@@ -41,7 +42,9 @@ public class Bank {
                     System.out.println("다른 계좌번호를 입력해주세요");
                     continue;
                 }
+                String tempType = "Create Account";
                 banklist.Setter(name, password,AccountNumber);
+                transaction.sortTransactionDataIntoArrayList(name, AccountNumber, tempType, 0, 0);
                 isTrueAccountNumber = true;
             }else {
                 System.out.println("계좌번호 규칙을 준수해주시기 바랍니다..");
