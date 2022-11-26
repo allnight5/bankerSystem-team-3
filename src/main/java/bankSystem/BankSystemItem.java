@@ -1,6 +1,6 @@
 package bankSystem;
 
-class BankSystemItem {
+public class BankSystemItem {
     private int idx, balance;
     private String name, password, accountNumber, date;
 
