@@ -11,7 +11,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         //인터페이스들을 생성하기위한 부분
         MainInterface mainIn = new MainInterface();
-        CustomerInterface customerInterface = new CustomerInterface();
         RePasswordInterface rePasswordInterface = new RePasswordInterface();
         BankInterface bankInterface = new BankInterface();
         //고객인지 관리자인지 알기위한 관리자비밀번호
@@ -55,7 +54,7 @@ public class Main {
                         boolean isInOut = false;
                         //관리자 메인으로 이동하거나 여기에서 while문 을 돌릴곳
                         while (!isInOut) {
-                            bankInterface.bankRun();
+                            bankInterface.bankInterface();
                             scanner = new Scanner(System.in);
                             int adminSelect = 0;
                             try {

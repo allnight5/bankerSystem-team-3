@@ -1,7 +1,7 @@
 package bankSystem.interFace;
 
 public class BankInterface {
-    public void bankRun() {
+    public void bankInterface() {
 
         System.out.println("---------목록---------");
         System.out.println("앞에 번호를 입력해주세요");
