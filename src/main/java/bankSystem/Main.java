@@ -54,7 +54,7 @@ public class Main {
                         boolean isInOut = false;
                         //관리자 메인으로 이동하거나 여기에서 while문 을 돌릴곳
                         while (!isInOut) {
-                            bankInterface.bankRun();
+                            bankInterface.bankInterface();
                             scanner = new Scanner(System.in);
                             int adminSelect = 0;
                             try {
