@@ -43,7 +43,7 @@ public class Customer extends Bank {
                                         System.out.println("입금하시려는 액수를 입력해주세요.");
                                         String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
-                                        int tempDepositBalance =  banklist.depositSetter(accountNumber, deposit);
+                                        int tempDepositBalance =  banklist.depositToAccount(accountNumber, deposit);
                                         transaction.sortTransactionDataIntoArrayList(transaction.findNameByAccountNumber(checkAccountNumber), checkAccountNumber, tempType, deposit, tempDepositBalance);
                                         break;
 
@@ -51,7 +51,7 @@ public class Customer extends Bank {
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
-                                        int tempWithdrawBalance = banklist.withdrawSetter(accountNumber, withdraw);
+                                        int tempWithdrawBalance = banklist.withdrawFromAccount(accountNumber, withdraw);
                                         transaction.sortTransactionDataIntoArrayList(transaction.findNameByAccountNumber(checkAccountNumber), checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
@@ -59,7 +59,7 @@ public class Customer extends Bank {
                                         transaction.getTransactionListByAccountNumber(checkAccountNumber);
                                         break;
                                     case 4:
-                                        System.out.println("계좌 잔고는 " + banklist.referBalance(accountNumber) + "원 입니다.");
+                                        System.out.println("계좌 잔고는 " + banklist.checkBalance(accountNumber) + "원 입니다.");
 
                                 }
                                 break;
@@ -89,14 +89,14 @@ public class Customer extends Bank {
                                         System.out.println("입금하시려는 액수를 입력해주세요.");
                                         String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
-                                        int tempDepositBalance = banklist.depositSetter(accountName, deposit);
+                                        int tempDepositBalance = banklist.depositToAccount(accountName, deposit);
                                         transaction.sortTransactionDataIntoArrayList(checkAccountName, transaction.findAccountNumberByName(checkAccountName), tempType, deposit, tempDepositBalance);
                                         break;
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
-                                        int tempWithdrawBalance = banklist.withdrawSetter(accountName, withdraw);
+                                        int tempWithdrawBalance = banklist.withdrawFromAccount(accountName, withdraw);
                                         transaction.sortTransactionDataIntoArrayList(checkAccountName, transaction.findAccountNumberByName(checkAccountName), tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
@@ -104,7 +104,7 @@ public class Customer extends Bank {
                                         transaction.getTransactionListByUserName(checkAccountName);
                                         break;
                                     case 4:
-                                        System.out.println("계좌 잔고는 " + banklist.referBalance(accountName) + "원 입니다.");
+                                        System.out.println("계좌 잔고는 " + banklist.checkBalance(accountName) + "원 입니다.");
                                 }
                                 break;
                             }

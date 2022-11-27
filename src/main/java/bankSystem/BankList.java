@@ -37,9 +37,9 @@ public class BankList {
 //
 //        return
 //    }
-    //입력된값을 리스트에 넣어주는 setter
+    //입력된값을 리스트에 넣어주는 setAccount
     //1번 계좌 등록에 사용되는 메소드
-    public void Setter(String name, String password, String accountNumber) {
+    public void setAccount(String name, String password, String accountNumber) {
         count++;
 
         Date dateUpdate = new Date();
@@ -68,29 +68,12 @@ public class BankList {
     //무엇을 수정할것인지 선택하게 할것인가
     //비밀번호만 변경할것인가
     //비밀번호를 변경해주는 메소드
-    public void changeSetter(String accountNumber, String changePassword) {
+    public void changeAccount(String accountNumber, String changePassword) {
         for (BankSystemItem item : bankArraylist) {
             if (item.getCustomerAccountNumber().equals(accountNumber)) {
                 item.setCustomerPassword(changePassword);
             }
         }
-    }
-
-    // 잔고에 입금해주는 메소드
-    public int depositSetter(BankSystemItem account, int deposit) {
-        account.setDeposit(deposit);
-        return account.getCustomerBalance();
-    }
-
-    // 잔고에서 출금하는 메소드
-    public int withdrawSetter(BankSystemItem account, int withdraw) {
-        account.setWithdraw(withdraw);
-        return account.getCustomerBalance();
-    }
-
-    // 잔고 확인해주는 메소드
-    public int referBalance(BankSystemItem account) {
-        return account.getCustomerBalance();
     }
 
     //은행 3번 삭제 메소드
@@ -137,4 +120,22 @@ public class BankList {
     public int lengthGetter() {
         return bankArraylist.size();
     }
+
+    // 잔고에 입금해주는 메소드
+    public int depositToAccount(BankSystemItem account, int deposit) {
+        account.setDeposit(deposit);
+        return account.getCustomerBalance();
+    }
+
+    // 잔고에서 출금하는 메소드
+    public int withdrawFromAccount(BankSystemItem account, int withdraw) {
+        account.setWithdraw(withdraw);
+        return account.getCustomerBalance();
+    }
+
+    // 잔고 확인해주는 메소드
+    public int checkBalance(BankSystemItem account) {
+        return account.getCustomerBalance();
+    }
 }
+

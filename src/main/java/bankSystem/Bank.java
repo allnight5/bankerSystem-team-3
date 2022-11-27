@@ -43,7 +43,7 @@ public class Bank {
                     continue;
                 }
                 String tempType = "Create Account";
-                banklist.Setter(name, password,AccountNumber);
+                banklist.setAccount(name, password,AccountNumber);
                 transaction.sortTransactionDataIntoArrayList(name, AccountNumber, tempType, 0, 0);
                 isTrueAccountNumber = true;
             }else {
@@ -68,7 +68,7 @@ public class Bank {
             System.out.println("계좌의 변경할 비밀번호를 입력해주세요 : ");
             sc = new Scanner(System.in);
             String changePassword = sc.nextLine();
-            banklist.changeSetter(accountNumber, changePassword);
+            banklist.changeAccount(accountNumber, changePassword);
         }else {
             System.out.println("존재하지 않는 계좌번호 이거나 비밀번호가 틀렸습니다.");
         }
