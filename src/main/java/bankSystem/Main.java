@@ -73,7 +73,7 @@ public class Main {
                                     break;
 
                                 case 3:
-                                    bankAll.deleteCustomer();
+                                    bankAll.deleteAccount();
                                     break;
 
                                 case 4:
