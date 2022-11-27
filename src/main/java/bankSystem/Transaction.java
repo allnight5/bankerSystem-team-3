@@ -3,9 +3,12 @@ package bankSystem;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Transaction {
-    ArrayList<TransactionData> transactionItems = new ArrayList<>();
+    List<TransactionData> transactionItems = new ArrayList<>();
 
     int transactionMarkerCount = 0;
 
@@ -22,9 +25,9 @@ public class Transaction {
     public void getTransactionListByUserName(String userName) {
         for (int i = 0; i < transactionItems.size(); i++) {
             if (transactionItems.get(i).getUserName().equals(userName)) {
-                System.out.println("거래 일자/시간: " + transactionItems.get(i).getDate() + "   계좌번호: " + transactionItems.get(i).getAccountNum() +
-                        "   거래 여부: " + transactionItems.get(i).getType() + "   거래 금액: " + transactionItems.get(i).getAmountOfTransfer() +
-                        "   잔고: " + transactionItems.get(i).getFinalBalance());
+                System.out.println("거래 일자/시간: " + transactionItems.get(i).getDate() + ".   계좌번호: " + transactionItems.get(i).getAccountNum() +
+                        ".   거래 종류: " + transactionItems.get(i).getType() + ".   거래 금액: " + transactionItems.get(i).getAmountOfTransfer() +
+                        ".   잔고: " + transactionItems.get(i).getFinalBalance());
             }
         }
     }
@@ -32,15 +35,15 @@ public class Transaction {
     public void getTransactionListByAccountNumber(String accountNum) {
         for (int i = 0; i < transactionItems.size(); i++) {
             if (transactionItems.get(i).getAccountNum().equals(accountNum)) {
-                System.out.println("거래 일자/시간: " + transactionItems.get(i).getDate() + "   계좌번호: " + transactionItems.get(i).getAccountNum() +
-                        "   거래 여부: " + transactionItems.get(i).getType() + "   거래 금액: " + transactionItems.get(i).getAmountOfTransfer() +
-                        "   잔고: " + transactionItems.get(i).getFinalBalance());
+                System.out.println("거래 일자/시간: " + transactionItems.get(i).getDate() + ".   계좌번호: " + transactionItems.get(i).getAccountNum() +
+                        ".   거래 종류: " + transactionItems.get(i).getType() + ".   거래 금액: " + transactionItems.get(i).getAmountOfTransfer() +
+                        ".   잔고: " + transactionItems.get(i).getFinalBalance());
             }
         }
     }
 
     public String findAccountNumberByName(String name) {
-        for (int i = 0; i < transactionItems.size(); i++) {
+        for (int i = 1; i < transactionItems.size(); i++) {
             if (transactionItems.get(i).getUserName().equals(name)) {
                 return transactionItems.get(i).getAccountNum();
             }
@@ -49,11 +52,29 @@ public class Transaction {
     }
 
     public String findNameByAccountNumber(String accountNumber) {
-        for (int i = 0; i < transactionItems.size(); i++) {
-            if (transactionItems.get(i).getAccountNum().equals(accountNumber)) {
+        for (int i = 1; i < transactionItems.size(); i++) {
+            if (getAccountNumFromTransactionData(accountNumber, i).equals(accountNumber)) {
                 return transactionItems.get(i).getUserName();
             }
         }
         return null;
+    }
+
+    public TransactionData getAccountNumFromTransactionData(String accountNumber, int id) {
+        TransactionData item = transactionItems.get(id);
+        if (item.getAccountNum().equals(accountNumber)) {
+            return item;
+        } else {
+            return null;
+        }
+    }
+
+    public TransactionData getNameFromTransactionData(String name, int id) {
+        TransactionData item = transactionItems.get(id);
+        if (item.getUserName().equals(name)) {
+            return item;
+        } else {
+            return null;
+        }
     }
 }
