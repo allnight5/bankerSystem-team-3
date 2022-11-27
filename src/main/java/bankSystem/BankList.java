@@ -9,22 +9,14 @@ import java.util.Date;
 //이름을 고유로 할지 다른게 할지는 회의를 통해진행한다.
 public class BankList {
 
-
-    static int count = 0;
-    ArrayList<BankSystemItem> bankArraylist;
-
-    //리스트 한개를 생성한다;
-    public BankList() {
-        bankArraylist = new ArrayList<>();
-    }
-
-
+    int count = 0;
+    private ArrayList<BankSystemItem> bankArraylist = new ArrayList<>();
     //계좌번호 중복 검사를 해주는 메소드
-    public boolean accountGetter(String accountName) {
+    public boolean duplicateAccountNumberConfirmation(String accountNumber) {
         for (BankSystemItem item : bankArraylist) {
             //중복검사 문자열인 getCustomerAccountNumer와 들어온 어카운트가 같은지 확인한다.
             //같다면 false보내서 !(반대로 바꾸는거 flase -> true) 조건문을 충족시킨다
-            if (item.getCustomerAccountNumber().equals(accountName)) {
+            if (item.getCustomerAccountNumber().equals(accountNumber)) {
                 return false;
             }
         }
@@ -37,9 +29,9 @@ public class BankList {
 //
 //        return
 //    }
-    //입력된값을 리스트에 넣어주는 setAccount
+    //입력된값을 리스트에 넣어주는 putAccountInList
     //1번 계좌 등록에 사용되는 메소드
-    public void setAccount(String name, String password, String accountNumber) {
+    public void putAccountInList(String name, String password, String accountNumber) {
         count++;
 
         Date dateUpdate = new Date();
@@ -47,15 +39,16 @@ public class BankList {
         String dateTime = formatterUpdate.format(dateUpdate);
         BankSystemItem data = new BankSystemItem(count, name, password, accountNumber, dateTime);
         bankArraylist.add(data);
-        System.out.println("생성자수 :\t" + data.getBankIdx() + ",\t고객명 :\t" + data.getCustomerName() + ",\t비밀번호 :\t" + data.getCustomerPassword() + ",\t계좌번호 :\t" + data.getCustomerAccountNumber()
+        System.out.println
+                ("생성자수 :\t" + data.getBankIdx() + ",\t고객명 :\t" + data.getCustomerName()
+                + ",\t비밀번호 :\t" + data.getCustomerPassword() + ",\t계좌번호 :\t" + data.getCustomerAccountNumber()
                 + ",\t잔고 :\t" + data.getCustomerBalance() + ",\t날짜시간 :\t" + data.getCustomerConnectDate());
-
     }
 
     //은행 2,3번 수정,삭제 Get메소드
     //계좌 번호와 비밀번호를 받을것인지 고객명과 비밀번호를 받을것인지
     //입력값이 은행에 존재하는지 확인해주는 메소드
-    public boolean aBooleanchangeGetter(String accountNumber, String password) {
+    public boolean checkAccountToManage(String accountNumber, String password) {
         for (BankSystemItem item : bankArraylist) {
             if (item.getCustomerAccountNumber().equals(accountNumber) && item.getCustomerPassword().equals(password)) {
                 return false;
@@ -68,7 +61,7 @@ public class BankList {
     //무엇을 수정할것인지 선택하게 할것인가
     //비밀번호만 변경할것인가
     //비밀번호를 변경해주는 메소드
-    public void changeAccount(String accountNumber, String changePassword) {
+    public void reviseAccount(String accountNumber, String changePassword) {
         for (BankSystemItem item : bankArraylist) {
             if (item.getCustomerAccountNumber().equals(accountNumber)) {
                 item.setCustomerPassword(changePassword);
@@ -77,7 +70,7 @@ public class BankList {
     }
 
     //은행 3번 삭제 메소드
-    public boolean deleteCustomer(String accountNumber, String password) {
+    public boolean deleteAccount(String accountNumber, String password) {
         for (BankSystemItem item : bankArraylist) {
             if (item.getCustomerAccountNumber().equals(accountNumber) && item.getCustomerPassword().equals(password)) {
                 bankArraylist.remove(item);
@@ -97,9 +90,6 @@ public class BankList {
         } else {
             return null;
         }
-
-        //은행 4번내용 계좌번호 검색 내용 출력
-        //이름 검색시 있다면 그 문자열 반환해준다.
     }
 
     public BankSystemItem GetterAccountNumber(String accountNumber, int idx) {
@@ -123,13 +113,13 @@ public class BankList {
 
     // 잔고에 입금해주는 메소드
     public int depositToAccount(BankSystemItem account, int deposit) {
-        account.setDeposit(deposit);
+        account.depositToBalance(deposit);
         return account.getCustomerBalance();
     }
 
     // 잔고에서 출금하는 메소드
     public int withdrawFromAccount(BankSystemItem account, int withdraw) {
-        account.setWithdraw(withdraw);
+        account.withdrawToBalance(withdraw);
         return account.getCustomerBalance();
     }
 

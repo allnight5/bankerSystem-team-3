@@ -64,7 +64,7 @@ class TransactionData {
         return accountNum;
     }
 
-    public void setAccountNum(String accountNum) {
+    public void putAccountInListNum(String accountNum) {
         this.accountNum = accountNum;
     }
 
