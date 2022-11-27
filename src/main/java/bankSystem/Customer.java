@@ -1,12 +1,9 @@
 package bankSystem;
 
-import bankSystem.interFace.TransactionInterface;
-
 import java.util.Scanner;
 
 public class Customer extends Bank {
     Transaction transaction = new Transaction();
-    TransactionInterface transactionInterface = new TransactionInterface();
 
     public void referCustomerAccount() {
         Scanner scanner = new Scanner(System.in);
@@ -44,7 +41,7 @@ public class Customer extends Bank {
                                         String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         int tempDepositBalance =  banklist.depositToAccount(accountNumber, deposit);
-                                        transaction.sortTransactionDataIntoArrayList(transaction.findNameByAccountNumber(checkAccountNumber), checkAccountNumber, tempType, deposit, tempDepositBalance);
+                                        transaction.sortTransactionDataIntoArrayList("Gimothi", checkAccountNumber, tempType, deposit, tempDepositBalance);
                                         break;
 
                                     case 2:
@@ -52,7 +49,7 @@ public class Customer extends Bank {
                                         String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         int tempWithdrawBalance = banklist.withdrawFromAccount(accountNumber, withdraw);
-                                        transaction.sortTransactionDataIntoArrayList(transaction.findNameByAccountNumber(checkAccountNumber), checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
+                                        transaction.sortTransactionDataIntoArrayList("Gimothi", checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");
@@ -90,14 +87,14 @@ public class Customer extends Bank {
                                         String tempType = "Deposit";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         int tempDepositBalance = banklist.depositToAccount(accountName, deposit);
-                                        transaction.sortTransactionDataIntoArrayList(checkAccountName, transaction.findAccountNumberByName(checkAccountName), tempType, deposit, tempDepositBalance);
+                                        transaction.sortTransactionDataIntoArrayList(checkAccountName, "Gimothi", tempType, deposit, tempDepositBalance);
                                         break;
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         String tempType2 = "Withdraw";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         int tempWithdrawBalance = banklist.withdrawFromAccount(accountName, withdraw);
-                                        transaction.sortTransactionDataIntoArrayList(checkAccountName, transaction.findAccountNumberByName(checkAccountName), tempType2, withdraw, tempWithdrawBalance);
+                                        transaction.sortTransactionDataIntoArrayList(checkAccountName, "Gimothi", tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");
