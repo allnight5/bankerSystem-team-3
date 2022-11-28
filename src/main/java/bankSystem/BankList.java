@@ -83,7 +83,7 @@ public class BankList {
     //은행 4번내용 이름 검색 내용 출력
     //이름 검색시 있다면 그 문자열을 반환해준다.
     // 우선 한개만 되는지 확인
-    public BankSystemItem Getter(String name, int idx) {
+    public BankSystemItem searchOwnerName(String name, int idx) {
         BankSystemItem item = bankArraylist.get(idx);
         if (item.getCustomerName().equals(name)) {
             return item;
@@ -92,7 +92,7 @@ public class BankList {
         }
     }
 
-    public BankSystemItem GetterAccountNumber(String accountNumber, int idx) {
+    public BankSystemItem searchAccountNumber(String accountNumber, int idx) {
         BankSystemItem item = bankArraylist.get(idx);
         if (item.getCustomerAccountNumber().equals(accountNumber)) {
             return item;
@@ -102,12 +102,12 @@ public class BankList {
     }
 
     //5번 내용 반환
-    public BankSystemItem GetterAll(int idx) {
+    public BankSystemItem searchAllAccount(int idx) {
         BankSystemItem item = bankArraylist.get(idx);
         return item;
     }
 
-    public int lengthGetter() {
+    public int getArrayListLength() {
         return bankArraylist.size();
     }
 

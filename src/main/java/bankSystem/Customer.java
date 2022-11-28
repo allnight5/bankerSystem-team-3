@@ -7,7 +7,7 @@ public class Customer extends Bank {
 
     public void referCustomerAccount() {
         Scanner scanner = new Scanner(System.in);
-        if (banklist.lengthGetter() == 0) {
+        if (banklist.getArrayListLength() == 0) {
             System.out.println("가지고 계신 계좌가 없습니다.");
             return;
         }
@@ -21,10 +21,10 @@ public class Customer extends Bank {
                     System.out.println("찾고 싶은 계좌명을 입력해주세요");
                     String checkAccountNumber = scanner.nextLine();
 
-                    for (int i = 0; i < banklist.lengthGetter(); i++) {
-                        BankSystemItem accountNumber = banklist.GetterAccountNumber(checkAccountNumber, i);
+                    for (int i = 0; i < banklist.getArrayListLength(); i++) {
+                        BankSystemItem accountNumber = banklist.searchAccountNumber(checkAccountNumber, i);
                         if (accountNumber == null) {
-                            if(i == (banklist.lengthGetter()-1)){System.out.println("일치하는 계좌가 없습니다.");}
+                            if(i == (banklist.getArrayListLength()-1)){System.out.println("일치하는 계좌가 없습니다.");}
                         } else {
                             System.out.println("비밀번호를 입력해주세요");
                             String password = scanner.nextLine();
@@ -39,7 +39,7 @@ public class Customer extends Bank {
                                 switch (depositOrWithdraw) {
                                     case 1:
                                         System.out.println("입금하시려는 액수를 입력해주세요.");
-                                        String tempType = "Deposit";
+                                        String tempType = "입금";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         int tempDepositBalance =  banklist.depositToAccount(accountNumber, deposit);
                                         transaction.sortTransactionDataIntoArrayList(accountNumber.getCustomerName(), checkAccountNumber, tempType, deposit, tempDepositBalance);
@@ -47,7 +47,7 @@ public class Customer extends Bank {
 
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
-                                        String tempType2 = "Withdraw";
+                                        String tempType2 = "출금";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         int tempWithdrawBalance = banklist.withdrawFromAccount(accountNumber, withdraw);
                                         transaction.sortTransactionDataIntoArrayList(accountNumber.getCustomerName(), checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
@@ -70,10 +70,10 @@ public class Customer extends Bank {
                 case 2:
                     System.out.println("찾고 싶은 계좌의 소유주명을 입력해주세요");
                     String checkAccountName = scanner.nextLine();
-                    for (int i = 0; i < banklist.lengthGetter(); i++) {
-                        BankSystemItem accountName = banklist.Getter(checkAccountName, i);
+                    for (int i = 0; i < banklist.getArrayListLength(); i++) {
+                        BankSystemItem accountName = banklist.searchOwnerName(checkAccountName, i);
                         if (accountName == null) {
-                            if(i == (banklist.lengthGetter()-1)){System.out.println("일치하는 계좌가 없습니다.");}
+                            if(i == (banklist.getArrayListLength()-1)){System.out.println("일치하는 계좌가 없습니다.");}
                         } else {
                             System.out.println("비밀번호를 입력해주세요");
                             String password = scanner.nextLine();
@@ -88,14 +88,14 @@ public class Customer extends Bank {
                                 switch (depositOrWithdraw) {
                                     case 1:
                                         System.out.println("입금하시려는 액수를 입력해주세요.");
-                                        String tempType = "Deposit";
+                                        String tempType = "입금";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         int tempDepositBalance = banklist.depositToAccount(accountName, deposit);
                                         transaction.sortTransactionDataIntoArrayList(checkAccountName, accountName.getCustomerAccountNumber(), tempType, deposit, tempDepositBalance);
                                         break;
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
-                                        String tempType2 = "Withdraw";
+                                        String tempType2 = "출금";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         int tempWithdrawBalance = banklist.withdrawFromAccount(accountName, withdraw);
                                         transaction.sortTransactionDataIntoArrayList(checkAccountName, accountName.getCustomerAccountNumber(), tempType2, withdraw, tempWithdrawBalance);
