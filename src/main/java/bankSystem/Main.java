@@ -99,7 +99,8 @@ public class Main {
                 case 3:
                     System.out.println("프로그램을 종료합니다.");
                     break;
-            }break;
+            }
+            break;
         }
     }
 }

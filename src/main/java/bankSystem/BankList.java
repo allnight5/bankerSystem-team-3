@@ -11,6 +11,7 @@ public class BankList {
 
     int count = 0;
     private ArrayList<BankSystemItem> bankArraylist = new ArrayList<>();
+
     //계좌번호 중복 검사를 해주는 메소드
     public boolean duplicateAccountNumberConfirmation(String accountNumber) {
         for (BankSystemItem item : bankArraylist) {
@@ -41,8 +42,8 @@ public class BankList {
         bankArraylist.add(data);
         System.out.println
                 ("생성자수 :\t" + data.getBankIdx() + ",\t고객명 :\t" + data.getCustomerName()
-                + ",\t비밀번호 :\t" + data.getCustomerPassword() + ",\t계좌번호 :\t" + data.getCustomerAccountNumber()
-                + ",\t잔고 :\t" + data.getCustomerBalance() + ",\t날짜시간 :\t" + data.getCustomerConnectDate());
+                        + ",\t비밀번호 :\t" + data.getCustomerPassword() + ",\t계좌번호 :\t" + data.getCustomerAccountNumber()
+                        + ",\t잔고 :\t" + data.getCustomerBalance() + ",\t날짜시간 :\t" + data.getCustomerConnectDate());
     }
 
     //은행 2,3번 수정,삭제 Get메소드

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Customer extends Bank {
     Transaction transaction = new Transaction();
 
+    //
     public void referCustomerAccount() {
         Scanner scanner = new Scanner(System.in);
         if (banklist.getArrayListLength() == 0) {
@@ -33,8 +34,9 @@ public class Customer extends Bank {
                                 System.out.println("비밀번호가 틀렸습니다.");
                                 break;
                             }
+                            customerMenu :
                             while (true) {
-                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).");
+                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).\n" + "메인메뉴로 돌아가기 원하시면 (5)." );
                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
 
                                 switch (depositOrWithdraw) {
@@ -59,11 +61,16 @@ public class Customer extends Bank {
                                         break;
                                     case 4:
                                         System.out.println("계좌 잔고는 " + banklist.checkBalance(accountNumber) + "원 입니다.");
+                                        break;
+
+                                    case 5:
+                                        System.out.println("메인메뉴로 돌아갑니다.");
+                                        break customerMenu;
 
                                 }
-                                break;
                             }
-                        } break;
+                        }
+                        break;
                     }
                     break;
 
@@ -97,8 +104,9 @@ public class Customer extends Bank {
                                 System.out.println("비밀번호가 틀렸습니다.");
                                 break;
                             }
+                            customerMenu :
                             while (true) {
-                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).");
+                                System.out.println("입금을 원하시면 (1).\n" + "출금을 원하시면 (2).\n" + "거래내역 조회를 원하시면 (3).\n" + "잔고 조회를 원하시면 (4).\n" + "메인메뉴로 돌아가기 원하시면 (5)." );
                                 int depositOrWithdraw = Integer.parseInt(scanner.nextLine());
 
                                 switch (depositOrWithdraw) {
@@ -123,15 +131,20 @@ public class Customer extends Bank {
                                         break;
                                     case 4:
                                         System.out.println("계좌 잔고는 " + banklist.checkBalance(accountNumber) + "원 입니다.");
+                                        break;
+
+                                    case 5:
+                                        System.out.println("메인메뉴로 돌아갑니다.");
+                                        break customerMenu;
 
                                 }
-                                break;
                             }
                         }
                         break;
                     }
                     break;
-            } break;
+            }
+            break;
         }
     }
 }

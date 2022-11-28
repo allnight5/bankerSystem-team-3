@@ -38,7 +38,9 @@ public class BankSystemItem {
     }
 
     //은행 관리자로 접속하여 계좌의 이름, 비밀번호,계좌번호 변경을 위한 메소드
-    public void setCustomerName(String changeName) { name = changeName; }
+    public void setCustomerName(String changeName) {
+        name = changeName;
+    }
 
     public void setCustomerPassword(String changePass) {
         password = changePass;
