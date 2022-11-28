@@ -41,7 +41,7 @@ public class Customer extends Bank {
                                         String tempType = "입금";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         int tempDepositBalance =  banklist.depositToAccount(accountNumber, deposit);
-                                        transaction.sortTransactionDataIntoArrayList("Gimothi", checkAccountNumber, tempType, deposit, tempDepositBalance);
+                                        transaction.sortTransactionDataIntoArrayList(accountNumber.getCustomerName(), accountNumber.getCustomerAccountNumber(), tempType, deposit, tempDepositBalance);
                                         break;
 
                                     case 2:
@@ -49,11 +49,11 @@ public class Customer extends Bank {
                                         String tempType2 = "출금";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         int tempWithdrawBalance = banklist.withdrawFromAccount(accountNumber, withdraw);
-                                        transaction.sortTransactionDataIntoArrayList("Gimothi", checkAccountNumber, tempType2, withdraw, tempWithdrawBalance);
+                                        transaction.sortTransactionDataIntoArrayList(accountNumber.getCustomerName(), accountNumber.getCustomerAccountNumber(), tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");
-                                        transaction.getTransactionListByAccountNumber(checkAccountNumber);
+                                        transaction.getTransactionListByAccountNumber(accountNumber.getCustomerAccountNumber());
                                         break;
                                     case 4:
                                         System.out.println("계좌 잔고는 " + banklist.checkBalance(accountNumber) + "원 입니다.");
@@ -87,18 +87,18 @@ public class Customer extends Bank {
                                         String tempType = "입금";
                                         int deposit = Integer.parseInt(scanner.nextLine());
                                         int tempDepositBalance = banklist.depositToAccount(accountName, deposit);
-                                        transaction.sortTransactionDataIntoArrayList(checkAccountName, "Gimothi", tempType, deposit, tempDepositBalance);
+                                        transaction.sortTransactionDataIntoArrayList(accountName.getCustomerName(), accountName.getCustomerAccountNumber(), tempType, deposit, tempDepositBalance);
                                         break;
                                     case 2:
                                         System.out.println("출금하시려는 액수를 입력해주세요.");
                                         String tempType2 = "출금";
                                         int withdraw = Integer.parseInt(scanner.nextLine());
                                         int tempWithdrawBalance = banklist.withdrawFromAccount(accountName, withdraw);
-                                        transaction.sortTransactionDataIntoArrayList(checkAccountName, "Gimothi", tempType2, withdraw, tempWithdrawBalance);
+                                        transaction.sortTransactionDataIntoArrayList(accountName.getCustomerName(), accountName.getCustomerAccountNumber(), tempType2, withdraw, tempWithdrawBalance);
                                         break;
                                     case 3:
                                         System.out.println("-------거래내역-------");
-                                        transaction.getTransactionListByUserName(checkAccountName);
+                                        transaction.getTransactionListByUserName(accountName.getCustomerName());
                                         break;
                                     case 4:
                                         System.out.println("계좌 잔고는 " + banklist.checkBalance(accountName) + "원 입니다.");
