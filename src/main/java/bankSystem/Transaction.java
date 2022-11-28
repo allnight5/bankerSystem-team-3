@@ -4,8 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class Transaction {
     List<TransactionData> transactionItems = new ArrayList<>();
@@ -39,42 +37,6 @@ public class Transaction {
                         ".   거래 종류: " + transactionItems.get(i).getType() + ".   거래 금액: " + transactionItems.get(i).getAmountOfTransfer() +
                         ".   잔고: " + transactionItems.get(i).getFinalBalance());
             }
-        }
-    }
-
-    public String findAccountNumberByName(String name) {
-        for (int i = 1; i < transactionItems.size(); i++) {
-            if (transactionItems.get(i).getUserName().equals(name)) {
-                return transactionItems.get(i).getAccountNum();
-            }
-        }
-        return null;
-    }
-
-    public String findNameByAccountNumber(String accountNumber) {
-        for (int i = 1; i < transactionItems.size(); i++) {
-            if (getAccountNumFromTransactionData(accountNumber, i).equals(accountNumber)) {
-                return transactionItems.get(i).getUserName();
-            }
-        }
-        return null;
-    }
-
-    public TransactionData getAccountNumFromTransactionData(String accountNumber, int id) {
-        TransactionData item = transactionItems.get(id);
-        if (item.getAccountNum().equals(accountNumber)) {
-            return item;
-        } else {
-            return null;
-        }
-    }
-
-    public TransactionData getNameFromTransactionData(String name, int id) {
-        TransactionData item = transactionItems.get(id);
-        if (item.getUserName().equals(name)) {
-            return item;
-        } else {
-            return null;
         }
     }
 }
